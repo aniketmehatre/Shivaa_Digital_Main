@@ -1,0 +1,106 @@
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Website Development Company in Pune</p>
+      <h1>Website Development Company in Pune That Delivers</h1>
+      <p class="lede">
+        We design websites that are fast, mobile-friendly, and optimized for search engines.
+        Digital Shivaa is known as the best website development company in Pune offering complete
+        design and development services for startups and enterprises.
+      </p>
+
+      <div class="chips">
+        <span class="chip" *ngFor="let highlight of heroHighlights">
+          {{ highlight }}
+        </span>
+      </div>
+
+      <div class="hero-ctas">
+        <a class="btn primary" href="/contact">Start a project</a>
+        <a class="btn ghost" href="#portfolio">View portfolio</a>
+      </div>
+
+      <div class="hero-metrics">
+        <div class="metric-card">
+          <span class="metric-value">10+ yrs</span>
+          <span class="metric-label">B2B & startup builds</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value">500+</span>
+          <span class="metric-label">projects delivered</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value">SEO-first</span>
+          <span class="metric-label">performance & accessibility</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-image">
+        <img [src]="heroSnapshot" alt="Modern website development by Digital Shivaa" loading="lazy" />
+      </div>
+      <div class="floating-card">
+        <p class="floating-title">Fast, secure, scalable</p>
+        <p class="floating-text">Tailored strategies for online success with digital excellence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Our Projects</p>
+      <h2>Digital Shivaa website development portfolio</h2>
+      <p class="lede">
+        A snapshot of custom web, ecommerce, and platform builds across industries. Modern UI,
+        SEO-ready foundations, and fast performance come standard.
+      </p>
+    </div>
+
+    <div class="project-grid">
+      <article class="project-card" *ngFor="let project of projects">
+        <div class="project-thumb">
+          <img [src]="project.image" [alt]="project.name" loading="lazy" />
+          <div class="project-badge" *ngIf="project.tags?.length">
+            {{ project.tags[0] }}
+          </div>
+        </div>
+
+        <div class="project-body">
+          <h3>{{ project.name }}</h3>
+          <p class="project-desc">{{ project.shortDescription }}</p>
+
+          <div class="tag-row" *ngIf="project.tags?.length">
+            <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
+          </div>
+
+          <p class="case-study">{{ project.caseStudy }}</p>
+
+          <div class="card-actions">
+            <a class="btn outline" [href]="project.demoUrl" target="_blank" rel="noopener">
+              Demo Request
+            </a>
+            <button class="btn text" type="button" (click)="viewMore(project)">
+              View details
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="project-modal" *ngIf="selectedProject">
+  <div class="modal-backdrop" (click)="closeModal()"></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Project details">
+    <button class="close-btn" type="button" (click)="closeModal()" aria-label="Close">×</button>
+    <h3>{{ selectedProject?.name }}</h3>
+    <p class="project-desc">{{ selectedProject?.shortDescription }}</p>
+    <p class="case-study">{{ selectedProject?.caseStudy }}</p>
+    <a class="btn primary" [href]="selectedProject?.demoUrl" target="_blank" rel="noopener">
+      Open demo
+    </a>
+  </div>
+</div>
