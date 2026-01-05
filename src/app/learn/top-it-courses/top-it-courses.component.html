@@ -1,0 +1,253 @@
+<div class="page">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Best IT Training Institute in Pune</p>
+        <h1>Top IT Training Institute in Pune with 100% Placement Assistance</h1>
+        <p class="lead">
+          Build a successful IT career with industry-oriented courses, expert trainers, and strong placement support.
+          Join one of the top software training institutes in Pune trusted by students and professionals.
+        </p>
+        <ul class="checklist">
+          <li>Job-oriented IT courses</li>
+          <li>Placement assistance & interview preparation</li>
+          <li>Affordable fees & flexible batches</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn btn-primary" type="button" (click)="enrollOnWhatsApp()">Book a Free Counseling Session</button>
+          <a class="btn btn-ghost" [href]="phoneHref">Call: 70200 70178</a>
+        </div>
+        <p class="caption">Trusted by freshers, career switchers, and working professionals.</p>
+        <div class="badge-row">
+          <span class="badge">Top IT Training Institute in Pune</span>
+          <span class="badge">Placement-Focused IT Courses</span>
+          <span class="badge">Industry-Experienced Trainers</span>
+          <span class="badge">Practical &amp; Project-Based Learning</span>
+          <span class="badge">Career Support Until Placement</span>
+        </div>
+      </div>
+      <div class="hero-form-card">
+        <app-learn-form></app-learn-form>
+        <div class="mini-links">
+          <a [href]="whatsappHref" target="_blank" rel="noopener">WhatsApp Us</a>
+          <span>•</span>
+          <a [href]="phoneHref">Call Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="usp-strip">
+    <div class="container usp-grid">
+      <div class="usp">Top IT Training Institute in Pune</div>
+      <div class="usp">Placement-Focused IT Courses</div>
+      <div class="usp">Industry-Experienced Trainers</div>
+      <div class="usp">Practical &amp; Project-Based Learning</div>
+      <div class="usp">Career Support Until Placement</div>
+    </div>
+  </section>
+
+  <section class="section courses">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Our Top IT Courses in Pune</p>
+        <h2>High-demand IT and software courses designed for today&rsquo;s industry.</h2>
+        <p class="subhead">All courses include placement assistance and interview training.</p>
+      </div>
+      <div class="course-grid">
+        <article *ngFor="let course of courses" class="course-card">
+          <div class="card-top">
+            <div>
+              <p class="eyebrow soft">Full Stack &amp; IT Program</p>
+              <h3>{{ course.title }}</h3>
+              <p class="tech">{{ course.tech }}</p>
+            </div>
+            <div class="logo-wrap">
+              <img [src]="course.image" [alt]="course.title" loading="lazy">
+            </div>
+          </div>
+
+          <div class="chip-row">
+            <span class="chip">{{ course.duration }}</span>
+            <span class="chip chip-soft">{{ course.fees }}</span>
+          </div>
+
+          <h4>Syllabus Highlights</h4>
+          <ul class="syllabus">
+            <li *ngFor="let topic of course.syllabus">{{ topic }}</li>
+          </ul>
+
+          <div class="card-actions">
+            <button class="btn btn-primary" type="button" (click)="openDialog(course)">View syllabus</button>
+            <button class="btn btn-ghost" type="button" (click)="enrollOnWhatsApp(course)">Talk to counselor</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Why Choose Us</p>
+        <h2>Why Choose Shivaa Digital &ndash; Best IT Training Institute in Pune?</h2>
+        <p class="subhead">Practical, industry-aligned training with end-to-end placement support.</p>
+      </div>
+      <div class="card-grid">
+        <div class="info-card">
+          <h4>Practical training with live projects</h4>
+          <p>Hands-on assignments and projects that mirror real product work.</p>
+        </div>
+        <div class="info-card">
+          <h4>Industry-aligned curriculum</h4>
+          <p>Updated stack coverage across .NET, Java, MERN, and MEAN.</p>
+        </div>
+        <div class="info-card">
+          <h4>Resume &amp; interview preparation</h4>
+          <p>Profile building, mock interviews with IT experts, and feedback loops.</p>
+        </div>
+        <div class="info-card">
+          <h4>Dedicated placement support</h4>
+          <p>Job referrals, interview scheduling, and guidance until you are placed.</p>
+        </div>
+        <div class="info-card">
+          <h4>Affordable course fees</h4>
+          <p>Flexible payment options with transparent fee structure.</p>
+        </div>
+        <div class="info-card">
+          <h4>Online &amp; offline batches</h4>
+          <p>Attend from Pune campus or learn remotely with live instructors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section placement">
+    <div class="container placement-grid">
+      <div>
+        <p class="eyebrow">Placement Support</p>
+        <h2>IT Courses with Placement Support</h2>
+        <p class="subhead">We focus on skills + confidence, not just certificates.</p>
+        <ul class="checklist">
+          <li>Resume building &amp; LinkedIn optimization</li>
+          <li>Technical &amp; HR interview preparation</li>
+          <li>Mock interviews with real feedback</li>
+          <li>Job referrals &amp; interview scheduling</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn btn-primary" type="button" (click)="enrollOnWhatsApp()">Get placement roadmap</button>
+          <a class="btn btn-ghost" [href]="phoneHref">Talk to placement team</a>
+        </div>
+      </div>
+      <div class="placement-card">
+        <p class="eyebrow">Pay After Placement (Optional)</p>
+        <h3>Pay After Placement Courses in Pune</h3>
+        <p class="mini">Selected IT courses are available under pay after placement options for eligible students.</p>
+        <ul class="syllabus tight">
+          <li>Learn first, pay after getting placed.</li>
+          <li>Transparent terms &amp; conditions apply.</li>
+        </ul>
+        <button class="btn btn-primary full" type="button" (click)="enrollOnWhatsApp()">Check eligibility</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section audience">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Who Can Join?</p>
+        <h2>Who Should Join Our IT Courses?</h2>
+      </div>
+      <div class="pill-grid">
+        <span class="pill">Fresh graduates (BE, BCA, BCS, MCA, etc.)</span>
+        <span class="pill">Final-year students</span>
+        <span class="pill">Career switchers</span>
+        <span class="pill">Working professionals upgrading skills</span>
+        <span class="pill">Anyone searching for “IT training institute near me”</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section location">
+    <div class="container location-grid">
+      <div>
+        <p class="eyebrow">Pune &amp; Online</p>
+        <h2>IT Training Institute in Pune &ndash; Near You</h2>
+        <p class="subhead">Online and offline batches available. We are a trusted choice for:</p>
+        <div class="pill-grid">
+          <span class="pill ghost">IT training institute in Pune</span>
+          <span class="pill ghost">Top IT training institute in Pune with placement</span>
+          <span class="pill ghost">Software training institutes in Pune</span>
+          <span class="pill ghost">Marketing &amp; IT courses near me</span>
+        </div>
+        <p class="caption">📍 Pune Location | Online &amp; Offline Batches Available</p>
+      </div>
+      <div class="location-card">
+        <h4>Visit | Call | WhatsApp</h4>
+        <p>Walk in for a counseling session or talk to us from anywhere.</p>
+        <div class="cta-row vertical">
+          <a class="btn btn-primary" [href]="phoneHref">Call Us</a>
+          <a class="btn btn-ghost" [href]="whatsappHref" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently Asked Questions</h2>
+        <p class="subhead">SEO-friendly Q&amp;A for students searching IT courses in Pune with placement.</p>
+      </div>
+      <div class="faq-list">
+        <details *ngFor="let faq of faqs; let i = index" class="faq-item" [open]="i === 0">
+          <summary>{{ faq.question }}</summary>
+          <p>{{ faq.answer }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section final">
+    <div class="container final-grid">
+      <div class="final-copy">
+        <p class="eyebrow">Final Call to Action</p>
+        <h2>Start Your IT Career Today</h2>
+        <p class="lead">Join a top IT training institute in Pune and build job-ready skills with expert guidance.</p>
+        <ul class="checklist">
+          <li>Apply now or get free career counseling</li>
+          <li>Structured placement assistance until you get hired</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn btn-primary" type="button" (click)="enrollOnWhatsApp()">Apply Now</button>
+          <a class="btn btn-ghost" [href]="phoneHref">Get Free Career Counseling</a>
+        </div>
+      </div>
+      <div class="final-form">
+        <!-- <app-learn-form></app-learn-form> -->
+      </div>
+    </div>
+  </section>
+</div>
+
+<ng-template #courseDialog>
+  <div class="dialog-body">
+    <p class="eyebrow">Syllabus Preview</p>
+    <h3>{{ selectedCourse?.title }}</h3>
+    <p class="tech">{{ selectedCourse?.tech }}</p>
+    <div class="chip-row">
+      <span class="chip">{{ selectedCourse?.duration }}</span>
+      <span class="chip chip-soft">{{ selectedCourse?.fees }}</span>
+    </div>
+    <h4>What you will learn</h4>
+    <ul class="syllabus">
+      <li *ngFor="let topic of selectedCourse?.syllabus">{{ topic }}</li>
+    </ul>
+    <div class="card-actions">
+      <button class="btn btn-primary" type="button" (click)="enrollOnWhatsApp()">Get counseling on WhatsApp</button>
+      <button class="btn btn-ghost" mat-dialog-close type="button">Close</button>
+    </div>
+  </div>
+</ng-template>
+

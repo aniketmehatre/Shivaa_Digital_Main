@@ -1,0 +1,328 @@
+/* ===========================
+   GLOBAL CARD STYLES
+=========================== */
+.client-section {
+  padding: 34px 0 70px;
+  background:
+    radial-gradient(900px circle at 50% 0%, rgba(61, 123, 255, 0.18), transparent 55%),
+    radial-gradient(900px circle at 100% 15%, rgba(255, 193, 7, 0.18), transparent 50%),
+    #f6f9ff;
+}
+
+/* .cd-wrap {
+  max-width: 1080px;
+} */
+
+.cd-page-title {
+  text-align: center;
+  font-weight: 700;
+  color: var(--primary-purple);
+  margin: 6px 0 22px;
+}
+
+.cd-section {
+  margin-top: 18px;
+}
+
+.cd-section-label {
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary-purple);
+  opacity: 0.8;
+  margin: 18px 0 14px;
+}
+
+.cd-grid {
+  margin-top: 0;
+}
+
+.diary-card,
+.video-card {
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--white);
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.diary-card:hover,
+.video-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+}
+
+/* ===========================
+   HERO CARD
+=========================== */
+.cd-hero-card {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(110deg, var(--primary-purple) 0%, var(--primary-purple) 35%);
+  box-shadow: 0 20px 55px rgba(0, 22, 82, 0.22);
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.cd-hero-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(700px circle at 20% 20%, rgba(255, 255, 255, 0.55), transparent 55%),
+    radial-gradient(700px circle at 80% 60%, rgba(0, 0, 0, 0.18), transparent 60%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.cd-hero-body {
+  position: relative;
+  padding: 44px 56px;
+  text-align: left;
+}
+
+.cd-hero-title {
+  font-size: clamp(28px, 3.1vw, 44px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--white);
+  margin: 0 0 10px;
+}
+
+.cd-hero-subtitle {
+  max-width: 760px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--white);
+}
+
+.cd-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 50px;
+  background: var(--primary-purple);
+  color: #ffc107;
+}
+
+.cd-stats {
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+.cd-stat-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary-purple);
+}
+
+.cd-stat-label {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+/* ===========================
+   TABS
+=========================== */
+.cd-tabs-wrap {
+  margin-top: 26px;
+  margin-bottom: 8px;
+}
+
+.cd-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.custom-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  background: var(--white);
+  color: var(--primary-purple);
+  border: 2px solid var(--primary-purple);
+  transition: all 0.3s ease;
+}
+
+.cd-tab-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.custom-tab-btn:hover {
+  transform: translateY(-2px);
+}
+
+.active-btn {
+  background: var(--primary-purple);
+  color: var(--white) !important;
+  border-color: var(--accent-yellow);
+  box-shadow: 0 12px 30px rgba(0, 74, 255, 0.22), 0 0 18px rgba(255, 193, 7, 0.35);
+}
+
+.active-btn .cd-tab-icon {
+  filter: saturate(1.1);
+}
+
+/* ===========================
+   MEDIA FRAMES
+=========================== */
+.cd-media-frame,
+.cd-video-frame {
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+  position: relative;
+}
+
+.cd-image-chip {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.cd-image-chip--dark {
+  background: var(--primary-purple);
+  color: var(--white);
+}
+
+.diary-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.video-thumb {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.diary-card:hover img,
+.video-card:hover img {
+  transform: scale(1.06);
+}
+
+/* ===========================
+   VIDEO CONTENT
+=========================== */
+.cd-card-caption {
+  padding: 10px 14px 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--primary-purple);
+}
+
+.video-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.cd-watch-btn {
+  border: 2px solid var(--primary-purple);
+  color: var(--primary-purple);
+  font-weight: 600;
+  background: var(--white);
+}
+
+.cd-watch-btn:hover {
+  background: var(--primary-purple);
+  color: var(--white);
+}
+
+/* ===========================
+   STATES
+=========================== */
+.cd-alert,
+.cd-empty {
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: #fff3cd;
+  color: #856404;
+  text-align: center;
+  font-weight: 500;
+}
+
+.cd-video-skeleton {
+  height: 240px;
+  border-radius: 18px;
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e6e6e6 37%,
+    #f0f0f0 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 992px) {
+  .diary-img {
+    height: 190px;
+  }
+  .video-thumb {
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cd-stats {
+    gap: 20px;
+  }
+  .diary-img,
+  .video-thumb {
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cd-hero-body {
+    padding: 34px 20px;
+    text-align: center;
+  }
+  .cd-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cd-hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cd-stats {
+    justify-content: center;
+  }
+  .custom-tab-btn {
+    padding: 8px 22px;
+    font-size: 14px;
+  }
+}

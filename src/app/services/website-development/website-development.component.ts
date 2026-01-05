@@ -26,7 +26,45 @@ export class WebsiteDevelopmentComponent implements OnInit {
   ];
 
   heroSnapshot =
-    'https://res.cloudinary.com/dfas0irwb/image/upload/v1735795500/web-dev-hero-digital-shivaa.png';
+    'assets/img/Website-dev.jpg';
+
+  offers: string[] = [
+    'Web Enablement Of Any Legacy Applications',
+    'Specific Custom Applications As Per Client Demand',
+    'Customized Web Portal Solutions',
+    'Corporate Web Based Solutions',
+    'Custom Social Network Development',
+    'Payment Processor Integrations'
+  ];
+
+  needsReasons = [
+    {
+      title: 'Professional Web Presence',
+      copy:
+        'Establish credibility and reach a global audience with custom-designed websites crafted by experienced professionals.'
+    },
+    {
+      title: 'Comprehensive Digital Marketing',
+      copy:
+        'Elevate your online presence with tailored digital marketing strategies including SEO, social media, and PPC management, ensuring visibility across diverse industries.'
+    },
+    {
+      title: 'Proven Track Records',
+      copy:
+        'With over a decade of industry experience and 500+ successful projects worldwide, trust Digital Shivaa for reliable, customer-focused web solutions.'
+    }
+  ];
+
+  chooseReasons: string[] = [
+    'Decades of B2B experience',
+    'Experienced, creative team',
+    '500+ global clients',
+    'Satisfaction-focused quality',
+    'Tailored client-centric services',
+    'Quality builds trust',
+    'Cost-effective, productive services',
+    'Analyze, test, assure'
+  ];
 
   projects: Project[] = [
     {

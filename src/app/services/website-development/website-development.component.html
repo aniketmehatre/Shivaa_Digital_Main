@@ -64,7 +64,7 @@
         <div class="project-thumb">
           <img [src]="project.image" [alt]="project.name" loading="lazy" />
           <div class="project-badge" *ngIf="project.tags?.length">
-            {{ project.tags[0] }}
+            {{ project.tags?.[0] || 'Featured' }}
           </div>
         </div>
 
@@ -92,14 +92,73 @@
   </div>
 </section>
 
+<section class="offers">
+  <div class="container offers-grid">
+    <div class="offers-left">
+      <div class="section-label">
+        <span class="rule"></span>
+        <span class="label-text">What we offer</span>
+      </div>
+      <h2>Customized websites for your digital success.</h2>
+      <p class="lede">Cutting-edge solutions guaranteed.</p>
+    </div>
+    <div class="offers-list">
+      <div class="offer-card" *ngFor="let offer of offers">
+        <span class="offer-dot"></span>
+        <p>{{ offer }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="needs">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Why Your Business Needs a Website?</p>
+      <h2>Reach more customers and showcase your products or services effectively.</h2>
+      <p class="lede">
+        We build websites that improve your online presence, making it easier for clients to find and connect with you.
+      </p>
+    </div>
+
+    <div class="needs-steps">
+      <div class="step" *ngFor="let need of needsReasons; let i = index">
+        <div class="step-icon">{{ i + 1 | number:'2.0' }}</div>
+        <div class="step-body">
+          <h3>{{ need.title }}</h3>
+          <p>{{ need.copy }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="choose">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Why Choose Digital Shivaa for Web Development in Pune?</p>
+      <h2>We build custom, SEO-friendly websites that perform.</h2>
+      <p class="lede">
+        Modern UI, mobile-first performance, and tailored strategies to help you win more customers online.
+      </p>
+    </div>
+
+    <div class="choose-grid">
+      <div class="choose-card" *ngFor="let reason of chooseReasons">
+        {{ reason }}
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="project-modal" *ngIf="selectedProject">
   <div class="modal-backdrop" (click)="closeModal()"></div>
   <div class="modal-card" role="dialog" aria-modal="true" aria-label="Project details">
     <button class="close-btn" type="button" (click)="closeModal()" aria-label="Close">×</button>
-    <h3>{{ selectedProject?.name }}</h3>
-    <p class="project-desc">{{ selectedProject?.shortDescription }}</p>
-    <p class="case-study">{{ selectedProject?.caseStudy }}</p>
-    <a class="btn primary" [href]="selectedProject?.demoUrl" target="_blank" rel="noopener">
+    <h3>{{ selectedProject!.name }}</h3>
+    <p class="project-desc">{{ selectedProject!.shortDescription }}</p>
+    <p class="case-study">{{ selectedProject!.caseStudy }}</p>
+    <a class="btn primary" [href]="selectedProject!.demoUrl" target="_blank" rel="noopener">
       Open demo
     </a>
   </div>

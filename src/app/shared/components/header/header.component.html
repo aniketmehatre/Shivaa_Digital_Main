@@ -1,39 +1,29 @@
 <!-- Top Info Bar -->
-<!-- <div class="top-info-bar">
-  <div class="container-fluid">
-    <div class="row align-items-center">
-      <div class="col-md-6 top-info-left">
-        <a href="mailto:digitalshivaa@gmail.com" class="info-item" aria-label="Email">
-          <i class="fas fa-envelope"></i>
-          <span>digitalshivaa@gmail.com</span>
-        </a>
-        <a href="tel:+917020070178" class="info-item" aria-label="Phone">
-          <i class="fas fa-phone"></i>
-          <span>+91 702 0070 178</span>
-        </a>
-      </div>
-      <div class="col-md-6 top-info-right">
-        <div class="social-icons">
-          <a href="https://www.facebook.com/shivaadigital" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://www.instagram.com/shivaadigital" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://x.com/shivaadigital" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-icon">
-            <i class="fab fa-x-twitter"></i>
-          </a>
-          <a href="https://www.youtube.com/@shivaadigital" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a href="https://www.linkedin.com/company/shivaadigital/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-        </div>
+<div class="top-info-bar">
+  <div class="container top-info-inner">
+    <div class="top-info-left">
+      <a href="mailto:digitalshivaa@gmail.com" class="info-link">
+        <span class="icon-circle"><i class="fas fa-envelope"></i></span>
+        <span class="info-text">digitalshivaa@gmail.com</span>
+      </a>
+      <div class="separator" aria-hidden="true"></div>
+      <a href="tel:+917020070178" class="info-link">
+        <span class="icon-circle"><i class="fas fa-phone-alt"></i></span>
+        <span class="info-text">+91 702 0070 178</span>
+      </a>
+    </div>
+
+    <div class="top-info-right">
+      <div class="social-wrapper">
+        <a href="https://facebook.com/shivaadigital" target="_blank" rel="noopener noreferrer" class="social-btn fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/shivaadigital" target="_blank" rel="noopener noreferrer" class="social-btn ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/shivaadigital" target="_blank" rel="noopener noreferrer" class="social-btn tw" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://youtube.com/@shivaadigital" target="_blank" rel="noopener noreferrer" class="social-btn yt" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://linkedin.com/company/shivaadigital/" target="_blank" rel="noopener noreferrer" class="social-btn ln" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 <!-- Main Navbar -->
 <nav class="navbar" [class.scrolled]="isScrolled" [class.scrolled-up]="isScrolledUp">
@@ -42,7 +32,7 @@
       <!-- Logo Section -->
       <div class="navbar-brand">
         <a routerLink="/" class="logo-link" aria-label="Home">
-          <img src="assets/img/shivaa Digital .png" alt="Shivaa Digital Logo" class="logo-img">
+          <img src="assets/img/shivaa Digital .png" alt="Shivaa Digital Logo" class="logo-img" loading="lazy">
         </a>
       </div>
 
@@ -105,11 +95,13 @@
               Client Diary
             </a>
           </li>
+
           <li class="nav-item">
-            <a routerLink="/client-diary" routerLinkActive="active" class="nav-link">
+            <button type="button" class="nav-link nav-link-button" (click)="navigateToBlog()">
               Blog
-            </a>
+            </button>
           </li>
+
           <!-- Learn Dropdown -->
           <li class="nav-item dropdown" 
               (mouseenter)="openDropdown('learn')" 
@@ -118,7 +110,7 @@
             <a class="nav-link dropdown-toggle" 
                (click)="toggleDropdown('learn')"
                [attr.aria-expanded]="activeDropdown === 'learn'">
-              Learn
+              Courses
               <i class="fas fa-chevron-down"></i>
             </a>
             <ul class="dropdown-menu" [class.show]="activeDropdown === 'learn'">
@@ -155,6 +147,7 @@
               Career
             </a>
           </li>
+
           <li class="nav-item">
             <a routerLink="/contact" routerLinkActive="active" class="nav-link">
               Contact
@@ -233,20 +226,22 @@
           </ul>
         </li>
 
-        <li class="nav-item">
-            <a routerLink="/client-diary" routerLinkActive="active" class="nav-link">
-              Client Diary
-            </a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/client-diary" routerLinkActive="active" class="nav-link">
-              Blog
-            </a>
-          </li>
+        <li class="mobile-nav-item">
+          <a routerLink="/client-diary" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">
+            Client Diary
+          </a>
+        </li>
+
+        <li class="mobile-nav-item">
+          <button type="button" class="mobile-nav-link mobile-nav-link-button" (click)="navigateToBlog(); closeMobileMenu()">
+            Blog
+          </button>
+        </li>
+        
         <!-- Learn Mobile Dropdown -->
         <li class="mobile-nav-item">
           <a class="mobile-nav-link dropdown-toggle-mobile" (click)="toggleMobileDropdown('learn')">
-            Learn
+            Courses
             <i class="fas fa-chevron-down" [class.rotated]="mobileDropdowns['learn']"></i>
           </a>
           <ul class="mobile-dropdown" [class.show]="mobileDropdowns['learn']">
@@ -283,6 +278,7 @@
             Career
           </a>
         </li>
+
         <li class="mobile-nav-item">
           <a routerLink="/contact" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">
             Contact

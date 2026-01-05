@@ -1,0 +1,279 @@
+/* ============================================
+   FOOTER SECTION
+   ============================================ */
+.footer {
+  background-color: var(--primary-purple);
+  color: var(--white);
+  width: 100%;
+  position: relative;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 20px 40px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Footer Column */
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-yellow);
+}
+
+/* Footer Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-link {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+}
+
+.footer-link i {
+  font-size: 12px;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-yellow);
+  padding-left: 5px;
+}
+
+.footer-link:hover i {
+  transform: translateX(3px);
+  opacity: 1;
+}
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: color 0.3s ease;
+}
+
+.contact-item i {
+  font-size: 16px;
+  color: var(--accent-yellow);
+  width: 20px;
+  text-align: center;
+}
+
+.contact-item:hover {
+  color: var(--accent-yellow);
+}
+
+/* Social Media Icons */
+.social-media {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.social-icon:hover {
+  background-color: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+  color: var(--primary-purple);
+  transform: translateY(-3px);
+}
+
+/* Brand Column */
+.footer-brand {
+  align-items: flex-start;
+}
+
+.brand-logo {
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-description {
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 25px 0;
+  margin-top: 20px;
+}
+
+.footer-bottom-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.copyright {
+  color: var(--white);
+  font-size: 14px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet: 2 columns */
+@media (max-width: 991px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 30px;
+  }
+
+  .footer-container {
+    padding: 50px 20px 35px;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 767px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer-container {
+    padding: 40px 20px 30px;
+  }
+
+  .footer-heading {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .footer-brand {
+    text-align: center;
+    align-items: center;
+  }
+
+  .brand-description {
+    text-align: center;
+  }
+
+  .social-media {
+    justify-content: center;
+  }
+
+  .contact-info {
+    align-items: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+  }
+
+  .footer-links {
+    align-items: center;
+  }
+
+  .footer-link {
+    justify-content: center;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 575px) {
+  .footer-container {
+    padding: 35px 15px 25px;
+  }
+
+  .footer-content {
+    gap: 30px;
+  }
+
+  .footer-heading {
+    font-size: 17px;
+  }
+
+  .footer-link,
+  .contact-item,
+  .brand-description {
+    font-size: 14px;
+  }
+
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .copyright {
+    font-size: 13px;
+  }
+}

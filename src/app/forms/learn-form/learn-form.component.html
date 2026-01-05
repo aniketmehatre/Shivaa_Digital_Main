@@ -1,0 +1,78 @@
+<mat-card class="enroll-card">
+  <div class="enroll-header">
+    <div class="enroll-badge">Free Counseling</div>
+    <h3 class="enroll-title">{{ heading }}</h3>
+    <p class="enroll-subtitle">{{ subheading }}</p>
+  </div>
+
+  <form [formGroup]="enquiryForm" (ngSubmit)="onSubmit()" class="enroll-form">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Full name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter your name" autocomplete="name" />
+      <mat-error *ngIf="enquiryForm.get('name')?.touched && enquiryForm.get('name')?.invalid">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" placeholder="example@gmail.com" autocomplete="email" />
+      <mat-error *ngIf="enquiryForm.get('email')?.touched && enquiryForm.get('email')?.invalid">
+        Enter a valid email
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Phone</mat-label>
+      <input matInput type="tel" formControlName="phone" placeholder="9876543210" autocomplete="tel" />
+      <mat-error *ngIf="enquiryForm.get('phone')?.touched && enquiryForm.get('phone')?.invalid">
+        Enter a valid 10-digit phone number
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Select a course</mat-label>
+      <mat-select formControlName="course">
+        <mat-option value="" disabled>Select one</mat-option>
+        <mat-option *ngFor="let c of courseOptions" [value]="c">{{ c }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="enquiryForm.get('course')?.touched && enquiryForm.get('course')?.invalid">
+        Please select a course
+      </mat-error>
+    </mat-form-field>
+
+    <div class="enroll-row">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Passout year</mat-label>
+        <mat-select formControlName="passoutYear">
+          <mat-option value="" disabled>Select year</mat-option>
+          <mat-option *ngFor="let year of passoutYears" [value]="year">{{ year }}</mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="enquiryForm.get('passoutYear')?.touched && enquiryForm.get('passoutYear')?.invalid">
+          Select your passout year
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Qualification</mat-label>
+        <mat-select formControlName="qualification">
+          <mat-option value="" disabled>Select</mat-option>
+          <mat-option *ngFor="let q of qualifications" [value]="q">{{ q }}</mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="enquiryForm.get('qualification')?.touched && enquiryForm.get('qualification')?.invalid">
+          Select your qualification
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" class="enroll-submit" type="submit">
+      {{ submitText }}
+    </button>
+
+    <p class="enroll-note">
+      By submitting, you agree to be contacted by our team via call/WhatsApp.
+    </p>
+  </form>
+</mat-card>

@@ -1,0 +1,20 @@
+<div class="ty">
+  <div class="ty-icon" aria-hidden="true">✓</div>
+
+  <h2 class="ty-title">Thank you{{ data.name ? (', ' + data.name) : '' }}!</h2>
+  <p class="ty-subtitle">
+    We received your request{{ data.course ? (' for ' + data.course) : '' }}.
+    Our team will contact you shortly via call/WhatsApp.
+  </p>
+
+  <div class="ty-actions">
+    <a class="ty-btn ty-btn-primary" [href]="whatsappHref" target="_blank" rel="noopener noreferrer">
+      WhatsApp us
+    </a>
+    <a class="ty-btn ty-btn-ghost" [href]="phoneHref">
+      Call now
+    </a>
+  </div>
+
+  <p class="ty-note">If you don’t hear back in 10–15 minutes, feel free to call us directly.</p>
+</div>

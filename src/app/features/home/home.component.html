@@ -1,0 +1,182 @@
+<main class="home">
+    <!-- hero section -->
+    <section class="hero">
+        <div class="hero-bg hero-bg-main"></div>
+        <div class="hero-bg hero-bg-accent"></div>
+    
+        <div class="hero-container">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="hero-kicker">Leading Digital Marketing Agency in Pune | Maharashtra</p>
+                    <h1>
+                        <span class="outline">Everything Going Digital,</span>
+                        <span class="outline">Why Shouldn't Your Organization.?</span>
+                        <span class="service-rotator" aria-live="polite">
+                            <span>Social Media Marketing</span>
+                            <span>Website Design &amp; Development</span>
+                            <span>SEO Optimization</span>
+                            <span>PPC Management</span>
+                            <span>Android App Development</span>
+                        </span>
+                    </h1>
+    
+                    <div class="hero-description">
+                        <p>
+                            We’ve designed our entire process and products around providing everything a small
+                                        businesses needs when they’re starting out – ensuring that working with us is always
+                                        a quick, easy and hassle-free experience.
+                        </p>
+                    </div>
+    
+                    <div class="hero-actions">
+                        <button type="button" class="btn-primary" (click)="openInquiryDialog()">
+                            Schedule a Call
+                            <span class="arrow">»</span>
+                        </button>
+                        <!-- <a class="btn-secondary" routerLink="/portfolio">
+                            Our Portfolio
+                            <span class="arrow">»</span>
+                        </a> -->
+                    </div>
+                </div>
+    
+                <div class="hero-pane">
+                    <div class="pane-decor primary"></div>
+                    <div class="pane-decor secondary"></div>
+    
+                    <div class="floating-card sales">
+                        <div class="bars" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="details">
+                            <div class="title">Sale Increases</div>
+                            <div class="value">+128%</div>
+                        </div>
+                    </div>
+    
+                    <!-- <div class="hero-form-card">
+                        <app-service-form></app-service-form>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of hero section -->
+    <!-- about section -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="section-heading text-center">
+                <div class="eyebrow">
+                    <span class="line"></span>
+                    <span class="text">Why Shivaa Digital</span>
+                    <span class="line"></span>
+                </div>
+                <h2>Why Shivaa Digital</h2>
+            </div>
+    
+            <div class="features-grid">
+                <article class="feature-card" *ngFor="let item of whyShivaaFeatures">
+                    <div class="icon-wrap">
+                        <i [class]="item.icon" aria-hidden="true"></i>
+                    </div>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                </article>
+            </div>
+    
+            <div class="about-row">
+                <div class="about-illustration" aria-hidden="true">
+                   <img src="assets/img/about.jpg" class="img-fluid rounded-3" alt="About-Us" loading="lazy">
+                </div>
+                <div class="about-copy">
+                    <div class="eyebrow">
+                        <span class="line"></span>
+                        <span class="text">About Us</span>
+                        <span class="line"></span>
+                    </div>
+                    <h3>Welcome to DigitalShivaa.com</h3>
+                    <p class="lede">
+                        Your partner in digital success. We are a full-service digital marketing company
+                        helping startups, SMEs, and established brands grow online with strategies tailored
+                        to your business goals.
+                    </p>
+                    <div class="about-lists">
+                        <ul>
+                            <li>Digital Success</li>
+                            <li>Tailored Strategies</li>
+                            <li>Trusted Partner</li>
+                        </ul>
+                        <ul>
+                            <li>Online Success</li>
+                            <li>Trusted Partner</li>
+                            <li>Digital Excellence</li>
+                        </ul>
+                    </div>
+                    <a class="btn-primary about-cta" routerLink="/about">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services-section">
+        <div class="section-heading text-center">
+            <div class="eyebrow">
+                <span class="line"></span>
+                <span class="text">Our Services</span>
+                <span class="line"></span>
+            </div>
+            <h2>Our Services</h2>
+            <p class="section-subtitle">We offer customizable digital marketing solutions tailored to your unique business needs.</p>
+        </div>
+    
+        <div class="services-grid">
+            <article class="service-card" *ngFor="let service of servicesed">
+                <div class="service-thumb">
+                    <img [src]="service.image" [alt]="service.title" loading="lazy">
+                    <a class="pill-btn" [routerLink]="service.link">Read More</a>
+                </div>
+                <div class="service-body">
+                    <h3>{{ service.title }}</h3>
+                    <div class="rating" aria-label="5 star rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p>{{ service.description }}</p>
+                </div>
+            </article>
+        </div>
+    </section>
+    
+    <section class="testimonial-section">
+        <div class="section-heading text-center">
+            <div class="eyebrow">
+                <span class="line"></span>
+                <span class="text">Testimonial</span>
+                <span class="line"></span>
+            </div>
+            <h2>Client Say The Nicest Things</h2>
+        </div>
+    
+        <div class="testimonial-slider" aria-live="polite">
+            <div class="testimonial-track">
+                <ng-container *ngFor="let _ of [1,2]">
+                    <article class="testimonial-card" *ngFor="let item of testimonials">
+                        <div class="avatar-wrap">
+                            <img [src]="item.image" [alt]="item.name" loading="lazy">
+                        </div>
+                        <div class="testimonial-meta">
+                            <h4>{{ item.name }}</h4>
+                            <p class="role">{{ item.profession }}</p>
+                        </div>
+                        <p class="quote">“{{ item.feedback }}”</p>
+                        <div class="dot-row" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </article>
+                </ng-container>
+            </div>
+        </div>
+    </section>
+</main>
