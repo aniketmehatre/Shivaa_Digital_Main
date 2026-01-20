@@ -3,23 +3,23 @@
   <div class="container top-info-inner">
     <div class="top-info-left">
       <a href="mailto:digitalshivaa@gmail.com" class="info-link">
-        <span class="icon-circle"><i class="fas fa-envelope"></i></span>
+        <span class="icon-circle"><i class="fa-solid fa-envelope"></i></span>
         <span class="info-text">digitalshivaa@gmail.com</span>
       </a>
       <div class="separator" aria-hidden="true"></div>
       <a href="tel:+917020070178" class="info-link">
-        <span class="icon-circle"><i class="fas fa-phone-alt"></i></span>
+        <span class="icon-circle"><i class="fa-solid fa-phone-alt"></i></span>
         <span class="info-text">+91 702 0070 178</span>
       </a>
     </div>
 
     <div class="top-info-right">
       <div class="social-wrapper">
-        <a href="https://facebook.com/shivaadigital" target="_blank" rel="noopener noreferrer" class="social-btn fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://instagram.com/shivaadigital" target="_blank" rel="noopener noreferrer" class="social-btn ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://x.com/shivaadigital" target="_blank" rel="noopener noreferrer" class="social-btn tw" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://youtube.com/@shivaadigital" target="_blank" rel="noopener noreferrer" class="social-btn yt" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="https://linkedin.com/company/shivaadigital/" target="_blank" rel="noopener noreferrer" class="social-btn ln" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://facebook.com/shivaadigital" target="_blank" rel="noopener noreferrer" class="social-btn fb" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://instagram.com/shivaadigital" target="_blank" rel="noopener noreferrer" class="social-btn ig" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/shivaadigital" target="_blank" rel="noopener noreferrer" class="social-btn tw" aria-label="X / Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://youtube.com/@shivaadigital" target="_blank" rel="noopener noreferrer" class="social-btn yt" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://linkedin.com/company/shivaadigital/" target="_blank" rel="noopener noreferrer" class="social-btn ln" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
       </div>
     </div>
   </div>
@@ -59,7 +59,7 @@
                (click)="toggleDropdown('services')"
                [attr.aria-expanded]="activeDropdown === 'services'">
               Services
-              <i class="fas fa-chevron-down"></i>
+              <i class="fa-solid fa-chevron-down"></i>
             </a>
             <ul class="dropdown-menu" [class.show]="activeDropdown === 'services'">
               <li>
@@ -111,7 +111,7 @@
                (click)="toggleDropdown('learn')"
                [attr.aria-expanded]="activeDropdown === 'learn'">
               Courses
-              <i class="fas fa-chevron-down"></i>
+              <i class="fa-solid fa-chevron-down"></i>
             </a>
             <ul class="dropdown-menu" [class.show]="activeDropdown === 'learn'">
               <li>
@@ -143,8 +143,8 @@
           </li>
 
           <li class="nav-item">
-            <a routerLink="/client-diary" routerLinkActive="active" class="nav-link">
-              Career
+            <a (click)="openlearn()" routerLinkActive="active" class="nav-link">
+              Learn
             </a>
           </li>
 
@@ -158,7 +158,7 @@
 
       <!-- CTA Button -->
       <div class="navbar-cta">
-        <a routerLink="/get-started" class="cta-button">
+        <a (click)="openwhatsapp()" class="cta-button">
             WhatsApp API        
         </a>
       </div>
@@ -195,7 +195,7 @@
         <li class="mobile-nav-item">
           <a class="mobile-nav-link dropdown-toggle-mobile" (click)="toggleMobileDropdown('services')">
             Services
-            <i class="fas fa-chevron-down" [class.rotated]="mobileDropdowns['services']"></i>
+            <i class="fa-solid fa-chevron-down" [class.rotated]="mobileDropdowns['services']"></i>
           </a>
           <ul class="mobile-dropdown" [class.show]="mobileDropdowns['services']">
             <li>
@@ -242,7 +242,7 @@
         <li class="mobile-nav-item">
           <a class="mobile-nav-link dropdown-toggle-mobile" (click)="toggleMobileDropdown('learn')">
             Courses
-            <i class="fas fa-chevron-down" [class.rotated]="mobileDropdowns['learn']"></i>
+            <i class="fa-solid fa-chevron-down" [class.rotated]="mobileDropdowns['learn']"></i>
           </a>
           <ul class="mobile-dropdown" [class.show]="mobileDropdowns['learn']">
             <li>
@@ -274,8 +274,8 @@
         </li>
 
         <li class="mobile-nav-item">
-          <a routerLink="/client-diary" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">
-            Career
+          <a (click)="openlearn()" routerLinkActive="active" class="mobile-nav-link" (click)="closeMobileMenu()">
+            Learn
           </a>
         </li>
 
@@ -285,7 +285,7 @@
           </a>
         </li>
         <li class="mobile-nav-item mobile-cta">
-          <a routerLink="/get-started" class="mobile-cta-button" (click)="closeMobileMenu()">
+          <a (click)="openwhatsapp()" class="mobile-cta-button" (click)="closeMobileMenu()">
             WhatsApp API
           </a>
         </li>

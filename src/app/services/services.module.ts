@@ -7,6 +7,7 @@ import { WebsiteDevelopmentComponent } from './website-development/website-devel
 import { SeoOptimizationComponent } from './seo-optimization/seo-optimization.component';
 import { PpcManagementComponent } from './ppc-management/ppc-management.component';
 import { AndroidAppDevelopmentComponent } from './android-app-development/android-app-development.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,11 +16,12 @@ import { AndroidAppDevelopmentComponent } from './android-app-development/androi
     WebsiteDevelopmentComponent,
     SeoOptimizationComponent,
     PpcManagementComponent,
-    AndroidAppDevelopmentComponent
+    AndroidAppDevelopmentComponent,
   ],
   imports: [
     CommonModule,
-    ServicesRoutingModule
+    ServicesRoutingModule,
+    FormsModule
   ]
 })
 export class ServicesModule { }

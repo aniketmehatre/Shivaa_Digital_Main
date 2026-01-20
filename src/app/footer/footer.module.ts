@@ -7,6 +7,10 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { FaqComponent } from './faq/faq.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 @NgModule({
@@ -19,7 +23,11 @@ import { FaqComponent } from './faq/faq.component';
   ],
   imports: [
     CommonModule,
-    FooterRoutingModule
+    FooterRoutingModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    MatExpansionModule,
   ]
 })
 export class FooterModule { }

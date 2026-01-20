@@ -66,19 +66,94 @@ export class ClientDiaryComponent implements OnInit {
         .pipe(take(1))
         .subscribe({
           next: (res) => {
-            this.videos = res.items ?? [];
-            this.isLoadingVideos = false;
+            // Sort videos by published date (latest first)
+            const items = res.items ?? [];
+            const sortedVideos = items.sort((a: any, b: any) => {
+              const dateA = new Date(a.snippet.publishedAt).getTime();
+              const dateB = new Date(b.snippet.publishedAt).getTime();
+              return dateB - dateA; // Latest first
+            });
+
+            // Get video details (statistics and duration) if available
+            if (sortedVideos.length > 0) {
+              const videoIds = sortedVideos.map((v: any) => v.id.videoId);
+              this.youtubeService.getVideoDetails(videoIds)
+                .pipe(take(1))
+                .subscribe({
+                  next: (detailsRes) => {
+                    const detailsMap = new Map();
+                    (detailsRes.items || []).forEach((item: any) => {
+                      detailsMap.set(item.id, item);
+                    });
+                    
+                    // Merge details with videos
+                    this.videos = sortedVideos.map((video: any) => ({
+                      ...video,
+                      contentDetails: detailsMap.get(video.id.videoId)?.contentDetails,
+                      statistics: detailsMap.get(video.id.videoId)?.statistics
+                    }));
+                    this.isLoadingVideos = false;
+                  },
+                  error: () => {
+                    // If details fail, still show videos without extra info
+                    this.videos = sortedVideos;
+                    this.isLoadingVideos = false;
+                  }
+                });
+            } else {
+              this.videos = sortedVideos;
+              this.isLoadingVideos = false;
+            }
           },
-          error: () => {
+          error: (err) => {
+            console.error('YouTube API Error:', err);
             this.videoError = 'Unable to load videos right now. Please try again later.';
             this.isLoadingVideos = false;
           }
         });
-    } catch {
+    } catch (error) {
       // Handles the service throwing synchronously when env config is missing.
       this.videoError = 'YouTube is not configured yet. Please add API key and channel ID.';
       this.isLoadingVideos = false;
     }
+  }
+
+  handleImageError(event: any): void {
+    event.target.src = 'assets/img/placeholder.jpg';
+  }
+
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric' 
+    });
+  }
+
+  formatViews(views: string | number): string {
+    const numViews = typeof views === 'string' ? parseInt(views) : views;
+    if (numViews >= 1000000) {
+      return (numViews / 1000000).toFixed(1) + 'M';
+    } else if (numViews >= 1000) {
+      return (numViews / 1000).toFixed(1) + 'K';
+    }
+    return numViews.toString();
+  }
+
+  formatDuration(duration: string): string {
+    // Parse ISO 8601 duration format (PT4M13S -> 4:13)
+    const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+    if (!match) return '';
+    
+    const hours = match[1] ? parseInt(match[1]) : 0;
+    const minutes = match[2] ? parseInt(match[2]) : 0;
+    const seconds = match[3] ? parseInt(match[3]) : 0;
+    
+    if (hours > 0) {
+      return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   }
 
   setSection(section: string): void {

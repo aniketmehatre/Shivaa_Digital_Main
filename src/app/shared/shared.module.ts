@@ -4,6 +4,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FloatingContactComponent } from './components/floating-contact/floating-contact.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule as NgFormsModule } from '@angular/forms';
+import { FormsModule as AppFormsModule } from '../forms/forms.module';
 
 
 
@@ -15,12 +17,15 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    NgFormsModule,
+    AppFormsModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    FloatingContactComponent
+    FloatingContactComponent,
+    NgFormsModule
   ]
 })
 export class SharedModule { }

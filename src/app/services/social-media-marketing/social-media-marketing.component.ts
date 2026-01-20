@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
+import { MatDialog } from '@angular/material/dialog';
+import { ServiceFormComponent } from '../../forms/service-form/service-form.component';
 
 @Component({
   selector: 'app-social-media-marketing',
@@ -14,7 +16,8 @@ export class SocialMediaMarketingComponent implements OnInit {
     private meta: Meta,
     private title: Title,
     private renderer: Renderer2,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -87,5 +90,18 @@ export class SocialMediaMarketingComponent implements OnInit {
 
     this.renderer.appendChild(this.document.head, script);
     this.schemaScriptAdded = true;
+  }
+
+  openInquiryDialog(): void {
+    this.dialog.open(ServiceFormComponent, {
+      width: '90%',
+      maxWidth: '600px',
+      maxHeight: '90vh',
+      panelClass: 'centered-service-dialog',
+      disableClose: false,
+      autoFocus: true,
+      hasBackdrop: true,
+      backdropClass: 'dialog-backdrop'
+    });
   }
 }

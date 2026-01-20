@@ -14,7 +14,7 @@
 .floating-btn {
   width: 3.5rem;
   height: 3.5rem;
-  border-radius: 0.75rem;
+  border-radius: var(--border-radius);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,6 +27,36 @@
   cursor: pointer;
   border: none;
   outline: none;
+}
+
+.service-btn {
+  display: none;
+  background: linear-gradient(135deg, var(--primary-purple), #6d2f86);
+  box-shadow: 0 8px 24px rgba(88, 42, 117, 0.28);
+}
+
+.right-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.talk-to-expert-btn {
+  display: none;
+}
+
+.talk-to-expert-btn .btn-text {
+  display: none;
+  margin-left: 0.75rem;
+  font-size: 2rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Sticky State */
+.floating-contact.sticky .talk-to-expert-btn {
+  width: auto;
+  padding: 0 1.5rem;
 }
 
 /* Call Button - Purple */
@@ -60,7 +90,7 @@
   background-color: var(--black);
   color: var(--white);
   padding: 8px 12px;
-  border-radius: 6px;
+  border-radius: var(--border-radius);
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
@@ -96,6 +126,96 @@
   transform: scale(1.1);
 }
 
+.floating-form-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.floating-form-backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.55);
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: block;
+}
+
+.floating-form-panel {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(720px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  padding: clamp(1.25rem, 4vw, 1.75rem);
+  box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.18);
+  animation: slideUp 240ms ease-out;
+}
+
+.floating-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.floating-form-eyebrow {
+  margin: 0;
+  color: #8c8c8c;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.floating-form-title {
+  margin: 0.25rem 0 0;
+  font-size: 1.25rem;
+  color: var(--primary-purple);
+}
+
+.floating-form-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.close-btn {
+  background: none;
+  border: 1px solid #e5e5e5;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--border-radius);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #444;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #f6f6f6;
+  color: var(--primary-purple);
+  border-color: #dedede;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 12%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
@@ -112,56 +232,129 @@
     height: 3.2rem;
     font-size: 1.35rem;
   }
+
+  .desktop-btn {
+    display: flex;
+  }
+
+  .floating-form-panel {
+    width: 100%;
+    max-height: 90vh;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
 }
 
-/* Mobile */
+/* Mobile - Horizontal Bottom Bar */
 @media (max-width: 767px) {
   .floating-contact {
-    right: clamp(0.75rem, 4vw, 1rem);
-    gap: 0.65rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    z-index: 999;
+    transition: all 0.3s ease;
   }
 
-  .floating-btn {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.2rem;
-    border-radius: 0.65rem;
+  .floating-contact.sticky {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(88, 42, 117, 0.1);
   }
 
-  .tooltip {
-    font-size: 12px;
-    padding: 6px 10px;
-    right: 4rem;
+  .talk-to-expert-btn {
+    display: flex !important;
+    flex: 1;
+    height: 3.5rem;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    box-shadow: 0 8px 24px rgba(88, 42, 117, 0.3);
+    max-width: none;
+    margin: 0;
   }
 
-  .floating-btn:hover .tooltip {
-    right: 4.4rem;
+  .talk-to-expert-btn .btn-text {
+    display: inline-block;
+  }
+
+  .talk-to-expert-btn i {
+    font-size: 1.3rem;
+  }
+
+  .right-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .right-buttons .floating-btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--border-radius);
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .right-buttons .tooltip {
+    display: none;
+  }
+
+  .floating-form-panel {
+    padding: 1rem 1.1rem 1.5rem;
   }
 }
 
 /* Small Mobile */
 @media (max-width: 575px) {
   .floating-contact {
-    right: 1rem;
-    bottom: 1rem;
-    gap: 0.65rem;
+    padding: 0.625rem 0.75rem;
+    gap: 0.5rem;
   }
 
-  .floating-btn {
-    width: 2.8rem;
-    height: 2.8rem;
-    font-size: 1.05rem;
-    border-radius: 0.6rem;
+  .floating-contact.sticky {
+    padding: 0.625rem 0.75rem;
   }
 
-  .tooltip {
-    display: none;
+  .talk-to-expert-btn {
+    height: 3.25rem;
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .talk-to-expert-btn .btn-text {
+  font-size: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .talk-to-expert-btn i {
+    font-size: 1.2rem;
+  }
+
+  .right-buttons {
+    gap: 0.5rem;
+  }
+
+  .right-buttons .floating-btn {
+    width: 3.25rem;
+    height: 3.25rem;
+    font-size: 1.2rem;
   }
 }
 
 /* Landscape Mobile */
 @media (max-width: 767px) and (orientation: landscape) {
-  .floating-contact {
-    bottom: 1.25rem;
+  .floating-contact.sticky {
+    padding: 0.5rem 1rem;
+  }
+
+  .talk-to-expert-btn {
+    height: 3rem;
   }
 }

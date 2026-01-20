@@ -1,11 +1,12 @@
 import { DOCUMENT } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Inject, OnInit, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 type SyllabusModule = {
   title: string;
   subtitle: string;
   bullets: string[];
+  open?: boolean;
 };
 
 type Faq = {
@@ -20,10 +21,14 @@ type Faq = {
   styleUrls: ['./digital-marketing.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DigitalMarketingComponent implements OnInit {
+export class DigitalMarketingComponent implements OnInit, OnDestroy {
   private readonly canonicalUrl = 'https://digitalshivaa.com/learn/digital-marketing';
   private readonly canonicalId = 'canonical-digital-marketing';
   private readonly schemaId = 'schema-digital-marketing';
+  
+  currentSlideIndex = 0;
+  private autoPlayInterval: any;
+  private readonly autoPlayDelay = 4000; // 4 seconds
 
   readonly phoneHref = 'tel:+917020070178';
   readonly whatsappHref = 'https://wa.me/917020070178';
@@ -137,6 +142,13 @@ export class DigitalMarketingComponent implements OnInit {
     item.open = !item.open;
   }
 
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   constructor(
     private title: Title,
     private meta: Meta,
@@ -207,6 +219,52 @@ export class DigitalMarketingComponent implements OnInit {
         }
       ]
     });
+
+    // Start auto-play for testimonial slider
+    this.startAutoPlay();
+  }
+
+  ngOnDestroy(): void {
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+    }
+  }
+
+  nextSlide(): void {
+    this.currentSlideIndex = (this.currentSlideIndex + 1) % this.testimonials.length;
+    this.resetAutoPlay();
+  }
+
+  prevSlide(): void {
+    this.currentSlideIndex = (this.currentSlideIndex - 1 + this.testimonials.length) % this.testimonials.length;
+    this.resetAutoPlay();
+  }
+
+  goToSlide(index: number): void {
+    this.currentSlideIndex = index;
+    this.resetAutoPlay();
+  }
+
+  startAutoPlay(): void {
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+    }
+    this.autoPlayInterval = setInterval(() => {
+      this.nextSlide();
+    }, this.autoPlayDelay);
+  }
+
+  private resetAutoPlay(): void {
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+    }
+    this.startAutoPlay();
+  }
+
+  stopAutoPlay(): void {
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+    }
   }
 
   private upsertCanonical(href: string): void {

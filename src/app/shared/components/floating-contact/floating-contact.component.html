@@ -1,23 +1,71 @@
-<div class="floating-contact">
-  <!-- Call Button -->
-  <a 
-    href="tel:+917020070178" 
-    class="floating-btn call-btn"
-    aria-label="Call Now"
-    title="Call Now">
-    <i class="fas fa-phone"></i>
-    <span class="tooltip">Call Now</span>
-  </a>
+<div class="floating-contact" [class.sticky]="isSticky">
+  <!-- Talk to Expert Button -->
+  <button
+    type="button"
+    class="floating-btn service-btn talk-to-expert-btn"
+    (click)="toggleForm()"
+    [attr.aria-expanded]="isFormOpen"
+    aria-controls="floating-service-form"
+    aria-label="Talk to Expert"
+    title="Talk to Expert">
+    <i class="fa-solid fa-handshake-angle"></i>
+    <span class="btn-text">Connect with an Expert</span>
+  </button>
 
-  <!-- WhatsApp Button -->
-  <a 
-    href="https://wa.me/917020070178" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    class="floating-btn whatsapp-btn"
-    aria-label="WhatsApp"
-    title="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-    <span class="tooltip">WhatsApp</span>
-  </a>
+  <!-- Right Side Buttons Container -->
+  <div class="right-buttons">
+    <!-- Call Button -->
+    <a 
+      href="tel:+917020070178" 
+      class="floating-btn call-btn"
+      aria-label="Call Now"
+      title="Call Now">
+      <i class="fa-solid fa-phone"></i>
+      <span class="tooltip">Call Now</span>
+    </a>
+
+    <!-- WhatsApp Button -->
+    <a 
+      href="https://wa.me/917020070178" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="floating-btn whatsapp-btn"
+      aria-label="WhatsApp"
+      title="WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span class="tooltip">WhatsApp</span>
+    </a>
+  </div>
+</div>
+
+<div class="floating-form-layer" *ngIf="isFormOpen">
+  <button
+    type="button"
+    class="floating-form-backdrop"
+    (click)="closeForm()"
+    aria-label="Close services form overlay">
+  </button>
+
+  <section
+    id="floating-service-form"
+    class="floating-form-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Service inquiry form">
+    <div class="floating-form-header">
+      <div class="floating-form-text">
+        <p class="floating-form-eyebrow">Need a quick quote?</p>
+        <h3 class="floating-form-title">Tell us about your project</h3>
+      </div>
+      <button
+        type="button"
+        class="close-btn"
+        (click)="closeForm()"
+        aria-label="Close services form">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <app-service-form></app-service-form>
+  </section>
 </div>

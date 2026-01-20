@@ -2,22 +2,37 @@
    FOOTER SECTION
    ============================================ */
 .footer {
-  background-color: var(--primary-purple);
+  background: linear-gradient(135deg, var(--primary-purple) 0%, #6b46c1 100%);
   color: var(--white);
   width: 100%;
   position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .footer-container {
-  max-width: 1400px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 60px 20px 40px;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  gap: 50px;
   margin-bottom: 40px;
 }
 
@@ -29,11 +44,14 @@
 
 .footer-heading {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--white);
   margin-bottom: 25px;
   position: relative;
   padding-bottom: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 16px;
 }
 
 .footer-heading::after {
@@ -43,7 +61,8 @@
   left: 0;
   width: 50px;
   height: 3px;
-  background-color: var(--accent-yellow);
+  background: linear-gradient(90deg, var(--accent-yellow), #ffd700);
+  border-radius: 2px;
 }
 
 /* Footer Links */
@@ -57,30 +76,35 @@
 }
 
 .footer-link {
-  color: var(--white);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-size: 15px;
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: all 0.3s ease;
-  padding: 5px 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px 0;
+  border-radius: 4px;
+  position: relative;
 }
 
 .footer-link i {
   font-size: 12px;
-  opacity: 0.8;
-  transition: transform 0.3s ease;
+  opacity: 0.7;
+  transition: all 0.3s ease;
 }
 
 .footer-link:hover {
   color: var(--accent-yellow);
-  padding-left: 5px;
+  padding-left: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding-left: 12px;
 }
 
 .footer-link:hover i {
-  transform: translateX(3px);
+  transform: translateX(5px);
   opacity: 1;
+  color: var(--accent-yellow);
 }
 
 /* Contact Info */
@@ -92,13 +116,15 @@
 }
 
 .contact-item {
-  color: var(--white);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-size: 15px;
   display: flex;
   align-items: center;
   gap: 12px;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 8px 0;
+  border-radius: 4px;
 }
 
 .contact-item i {
@@ -106,10 +132,17 @@
   color: var(--accent-yellow);
   width: 20px;
   text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .contact-item:hover {
   color: var(--accent-yellow);
+  background-color: rgba(255, 255, 255, 0.05);
+  padding-left: 8px;
+}
+
+.contact-item:hover i {
+  transform: scale(1.1);
 }
 
 /* Social Media Icons */
@@ -120,9 +153,9 @@
 }
 
 .social-icon {
-  width: 40px;
-  height: 40px;
-  border: 2px solid var(--white);
+  width: 42px;
+  height: 42px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -130,15 +163,17 @@
   color: var(--white);
   text-decoration: none;
   font-size: 16px;
-  transition: all 0.3s ease;
-  background-color: transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
 }
 
 .social-icon:hover {
   background-color: var(--accent-yellow);
   border-color: var(--accent-yellow);
   color: var(--primary-purple);
-  transform: translateY(-3px);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
 }
 
 /* Brand Column */
@@ -154,50 +189,109 @@
   height: 100px;
   width: auto;
   object-fit: contain;
+  filter: brightness(1.1);
+  transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+  transform: scale(1.05);
 }
 
 .brand-description {
-  color: var(--white);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.7;
+  margin: 0 0 25px 0;
+}
+
+/* Play Store Section */
+.play-store-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.play-store-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
   margin: 0;
-  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+.play-store-link {
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.play-store-badge {
+  height: 50px;
+  width: auto;
+  display: block;
+  transition: all 0.3s ease;
+  filter: brightness(0.95);
+}
+
+.play-store-link:hover .play-store-badge {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.play-store-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer Bottom Bar */
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding: 25px 0;
-  margin-top: 20px;
+  margin-top: 30px;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .footer-bottom-container {
-  max-width: 1400px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
 }
 
 .copyright {
-  color: var(--white);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 14px;
   margin: 0;
-  opacity: 0.9;
+  letter-spacing: 0.3px;
 }
 
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 
+/* Large Desktop */
+@media (max-width: 1200px) {
+  .footer-container {
+    max-width: 1080px;
+  }
+}
+
 /* Tablet: 2 columns */
 @media (max-width: 991px) {
   .footer-content {
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px 30px;
+    gap: 45px 35px;
   }
 
   .footer-container {
-    padding: 50px 20px 35px;
+    padding: 55px 20px 40px;
+  }
+
+  .footer-heading {
+    font-size: 15px;
   }
 }
 
@@ -205,15 +299,15 @@
 @media (max-width: 767px) {
   .footer-content {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 40px;
   }
 
   .footer-container {
-    padding: 40px 20px 30px;
+    padding: 45px 20px 35px;
   }
 
   .footer-heading {
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 20px;
   }
 
@@ -224,6 +318,7 @@
 
   .brand-description {
     text-align: center;
+    max-width: 100%;
   }
 
   .social-media {
@@ -245,20 +340,29 @@
   .footer-link {
     justify-content: center;
   }
+
+  .play-store-section {
+    align-items: center;
+    text-align: center;
+  }
+
+  .play-store-badge {
+    height: 55px;
+  }
 }
 
 /* Small Mobile */
 @media (max-width: 575px) {
   .footer-container {
-    padding: 35px 15px 25px;
+    padding: 40px 15px 30px;
   }
 
   .footer-content {
-    gap: 30px;
+    gap: 35px;
   }
 
   .footer-heading {
-    font-size: 17px;
+    font-size: 14px;
   }
 
   .footer-link,
@@ -268,12 +372,43 @@
   }
 
   .social-icon {
-    width: 36px;
-    height: 36px;
-    font-size: 14px;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
   }
 
   .copyright {
     font-size: 13px;
+  }
+
+  .footer-logo {
+    height: 80px;
+  }
+
+  .play-store-badge {
+    height: 50px;
+  }
+
+  .play-store-text {
+    font-size: 13px;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 375px) {
+  .footer-container {
+    padding: 35px 12px 25px;
+  }
+
+  .footer-content {
+    gap: 30px;
+  }
+
+  .footer-heading {
+    font-size: 13px;
+  }
+
+  .play-store-badge {
+    height: 45px;
   }
 }

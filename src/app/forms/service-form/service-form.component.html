@@ -2,6 +2,7 @@
   <h2 class="expert-form__title">Talk to Our Expert</h2>
 
   <form [formGroup]="inquiryForm" (ngSubmit)="onSubmit()" class="expert-form__body">
+    <!-- Row 1: Name and Phone Number -->
     <div class="expert-form__row">
       <div class="expert-form__field">
         <label for="name">Name*</label>
@@ -15,17 +16,18 @@
       </div>
 
       <div class="expert-form__field">
-        <label for="phone">Number*</label>
+        <label for="phone">Phone Number*</label>
         <input
           id="phone"
           type="tel"
           formControlName="phone"
-          placeholder="Number*"
+          placeholder="Phone Number*"
           required
         />
       </div>
     </div>
 
+    <!-- Row 2: Email (Full Width) -->
     <div class="expert-form__field">
       <label for="email">Your Email*</label>
       <input
@@ -37,6 +39,7 @@
       />
     </div>
 
+    <!-- Row 3: Service (Full Width) -->
     <div class="expert-form__field">
       <label for="service">Select a Service*</label>
       <div class="expert-form__select">
@@ -51,6 +54,7 @@
       </div>
     </div>
 
+    <!-- Row 4: Budget (Full Width) -->
     <div class="expert-form__field">
       <label for="budget">Monthly Marketing Budget*</label>
       <input

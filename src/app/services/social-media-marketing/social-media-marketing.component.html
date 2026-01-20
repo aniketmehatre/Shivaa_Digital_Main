@@ -9,10 +9,6 @@
           As a top social media marketing company in Pune, we offer powerful SMM strategies to increase engagement,
           followers, and conversions.
         </p>
-        <div class="cta-row">
-          <a class="btn primary" href="/contact">Talk to an expert</a>
-          <a class="btn ghost" href="tel:+917020070178">Call: +91 702 0070 178</a>
-        </div>
         <div class="highlights">
           <span>Platform-first strategies</span>
           <span>Growth & engagement KPIs</span>
@@ -85,7 +81,7 @@
         <article class="plan">
           <p class="plan-name">Basic Growth Plan</p>
           <p class="plan-tagline">Best for new businesses & startups</p>
-          <p class="price">₹5,000<span>/month</span></p>
+          <!-- <p class="price">₹5,000<span>/month</span></p> -->
           <ul>
             <li>Facebook page setup</li>
             <li>Instagram account setup</li>
@@ -95,13 +91,15 @@
             <li>1 promotional ad video</li>
             <li>Ad budget: as per client</li>
           </ul>
-          <a class="btn secondary" href="/contact">Get started</a>
+          <button class="btn secondary" type="button" (click)="openInquiryDialog()">
+            Get started
+          </button>
         </article>
   
         <article class="plan featured">
           <p class="plan-name">Silver Growth Plan</p>
           <p class="plan-tagline">Best for growing businesses</p>
-          <p class="price">₹10,000<span>/month</span></p>
+          <!-- <p class="price">₹10,000<span>/month</span></p> -->
           <ul>
             <li>Facebook & Instagram optimization</li>
             <li>Google My Business optimization</li>
@@ -112,13 +110,14 @@
             <li>Ads setup & management</li>
             <li>Ad budget: as per client</li>
           </ul>
-          <a class="btn primary" href="/contact">Scale my brand</a>
-        </article>
+          <button class="btn secondary" type="button" (click)="openInquiryDialog()">
+            Get started
+          </button>        </article>
   
         <article class="plan">
           <p class="plan-name">Gold Growth Plan</p>
           <p class="plan-tagline">Best for business owners who want results</p>
-          <p class="price">₹15,000<span>/month</span></p>
+          <!-- <p class="price">₹15,000<span>/month</span></p> -->
           <ul>
             <li>Facebook & Instagram setup & optimization</li>
             <li>SEO-optimized Google My Business</li>
@@ -131,7 +130,9 @@
             <li>Reach & lead boost campaigns</li>
             <li>Ad budget: as per client</li>
           </ul>
-          <a class="btn secondary" href="/contact">Book a strategy call</a>
+          <button class="btn secondary" type="button" (click)="openInquiryDialog()">
+            Get started
+          </button>
         </article>
       </div>
     </div>

@@ -1,1 +1,27 @@
-<p>faq works!</p>
+<div class="faq-page">
+  <div class="faq-header">
+    <h1 class="faq-title">Frequently Asked Questions</h1>
+    <p class="faq-intro">
+      Find answers to common questions about our digital marketing services, processes, and policies. 
+      If you can't find what you're looking for, feel free to reach out to us.
+    </p>
+  </div>
+
+  <div class="faq-container">
+    <mat-accordion class="faq-accordion">
+      <mat-expansion-panel *ngFor="let faq of faqs" class="faq-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <div class="faq-question">
+              <i class="fa-solid fa-circle-question"></i>
+              <span>{{ faq.question }}</span>
+            </div>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="faq-answer">
+          <p>{{ faq.answer }}</p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 declare var gtag: Function;
 
@@ -9,13 +10,13 @@ declare var gtag: Function;
   styleUrls: ['./service-form.component.css']
 })
 export class ServiceFormComponent {
-
-  
   inquiryForm!: FormGroup;
   submittedData: any[] = [];
-  dialog: any;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.inquiryForm = this.fb.group({
@@ -37,8 +38,11 @@ export class ServiceFormComponent {
 
     const url = 'https://script.google.com/macros/s/AKfycbxEbU7qP1tLl1DH7TX1rNNpXUfRVi6u6BGIwUezC4ygdDwm0qqULCVzsepkf9tHUFQafw/exec';
 
-    alert('Submitting...');
-    alert('Please wait while we process your inquiry.');
+    Swal.fire({
+      title: 'Submitting...',
+      allowOutsideClick: false,
+      didOpen: () => Swal.showLoading()
+    });
 
     fetch(url, {
       method: 'POST',
@@ -49,26 +53,37 @@ export class ServiceFormComponent {
       body: JSON.stringify(formData)
     })
       .then(() => {
-        alert('Thank You! Your inquiry has been submitted successfully!');
+        Swal.close();
         this.submittedData.push(formData);
         this.inquiryForm.reset();
 
-        // Call conversion tracking AFTER successful submission and Swal success
+        // Navigate to thank-you page with state
+        this.router.navigate(
+          ['/thank-you'],
+          { state: { name: formData.name, course: formData.service } }
+        );
+
+        // Call conversion tracking AFTER successful submission
         this.trackConversion();
       })
       .catch((error) => {
         console.error('Error:', error);
-        alert('Something went wrong while submitting your inquiry.');
+        Swal.close();
+        Swal.fire('Error', 'Something went wrong while submitting your inquiry.', 'error');
       });
   }
 
 
   trackConversion() {
-    gtag('event', 'conversion', {
-      'send_to': 'AW-714024328/oJ2_CNXf2PYaEIjLvNQC',
-      'event_callback': () => {
-        console.log("Conversion Tracked");
-      }
-    });
+    try {
+      gtag('event', 'conversion', {
+        send_to: 'AW-714024328/oJ2_CNXf2PYaEIjLvNQC',
+        event_callback: () => {
+          console.log("Conversion Tracked");
+        }
+      });
+    } catch (e) {
+      console.warn('gtag not available:', e);
+    }
   }
 }

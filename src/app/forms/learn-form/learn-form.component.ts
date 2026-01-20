@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { MatDialog } from '@angular/material/dialog';
-import { ThankYouComponent } from '../thank-you/thank-you.component';
 
 @Component({
   selector: 'app-learn-form',
@@ -15,15 +14,12 @@ export class LearnFormComponent implements OnInit {
   @Input() submitText = 'Submit';
   @Input() sourcePage = '';
   @Input() courseOptions: string[] = [
-    '.NET Full Stack Developer',
-    'Java Full Stack Developer',
-    'MERN Stack Developer',
-    'MEAN Stack Developer',
+    '.NET Full Stack',
+    'Java Full Stack',
+    'MERN Stack ',
+    'MEAN Stack',
     'Digital Marketing',
-    'Web Development',
-    'Graphic Design',
-    'Video Editing',
-    'SEO'
+    'Graphic Design'
   ];
 
   enquiryForm!: FormGroup;
@@ -35,7 +31,7 @@ export class LearnFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private dialog: MatDialog
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -78,6 +74,7 @@ export class LearnFormComponent implements OnInit {
         Swal.close(); // ❌ remove sweetalert success
 
         this.enquiryForm.reset();
+        this.trackConversion();
 
         // 🔹 GTM event
         (window as any).dataLayer = (window as any).dataLayer || [];
@@ -88,22 +85,29 @@ export class LearnFormComponent implements OnInit {
           selected_course: formData.course
         });
 
-        // 🔹 Open Thank You popup
-        const dialogRef = this.dialog.open(ThankYouComponent, {
-          width: '520px',
-          disableClose: false,
-          data: {
-            name: formData.name,
-            course: formData.course
-          }
-        });
-
-        dialogRef.afterClosed().subscribe(() => { });
+        // 🔹 Navigate to thank-you page with state
+        this.router.navigate(
+          ['/thank-you'],
+          { state: { name: formData.name, course: formData.course } }
+        );
       })
       .catch(() => {
         Swal.close();
         Swal.fire('Error', 'Something went wrong. Please try again.', 'error');
       });
+  }
+
+  private trackConversion() {
+    try {
+      (window as any).gtag('event', 'conversion', {
+        send_to: 'AW-714024328/oJ2_CNXf2PYaEIjLvNQC',
+        event_callback: () => {
+          console.log("Conversion Tracked");
+        }
+      });
+    } catch (e) {
+      console.warn('gtag not available:', e);
+    }
   }
 
 }

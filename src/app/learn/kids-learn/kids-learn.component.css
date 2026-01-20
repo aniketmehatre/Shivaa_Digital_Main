@@ -18,7 +18,7 @@
   background: var(--white);
   border: 1px solid rgba(88, 42, 117, 0.08);
   box-shadow: 0 14px 40px rgba(15, 4, 34, 0.08);
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   padding: clamp(20px, 3vw, 32px);
 }
 
@@ -32,8 +32,8 @@
   display: inline-block;
   padding: 8px 14px;
   background: rgba(88, 42, 117, 0.1);
-  color: var(--primary);
-  border-radius: 999px;
+  color: var(--primary-purple);
+  border-radius: var(--border-radius);
   font-weight: 700;
   font-size: 13px;
 }
@@ -42,13 +42,13 @@
   margin: 12px 0 10px;
   font-size: clamp(24px, 4vw, 36px);
   line-height: 1.2;
-  color: #140a1f;
+  color: var(--primary-purple);
 }
 
 .hero__lead {
   font-size: 16px;
   line-height: 1.6;
-  color: #3b2b4d;
+  color: var(--primary-purple);
   max-width: 800px;
 }
 
@@ -57,7 +57,7 @@
   flex-wrap: wrap;
   gap: 10px;
   margin: 14px 0;
-  color: #5a4a6b;
+  color: var(--primary-purple);
   font-weight: 600;
 }
 
@@ -65,7 +65,7 @@
   background: rgba(255, 210, 0, 0.16);
   padding: 8px 12px;
   border-radius: 12px;
-  color: #3a2a4d;
+  color: var(--primary-purple);
 }
 
 .cta-row {
@@ -76,7 +76,7 @@
 }
 
 .btn {
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   padding: 12px 18px;
   font-weight: 700;
   text-decoration: none;
@@ -87,7 +87,7 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, #6f3b93 100%);
+  background: linear-gradient(135deg, var(--primary-purple) 0%, #6f3b93 100%);
   color: var(--white);
   box-shadow: 0 12px 30px rgba(88, 42, 117, 0.25);
 }
@@ -99,7 +99,7 @@
 
 .btn-ghost {
   background: rgba(88, 42, 117, 0.08);
-  color: #1f0f31;
+  color: var(--primary-purple);
   border: 1px solid rgba(88, 42, 117, 0.16);
 }
 
@@ -119,7 +119,7 @@
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(88, 42, 117, 0.08);
-  color: #3a2a4d;
+  color: var(--primary-purple);
   font-weight: 600;
   font-size: 13px;
 }
@@ -174,17 +174,17 @@
 .info-grid div {
   background: rgba(88, 42, 117, 0.05);
   border: 1px solid rgba(88, 42, 117, 0.08);
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   padding: 12px;
 }
 
 .info-grid p {
   margin: 0 0 4px;
-  color: #5b4a6e;
+  color: var(--primary-purple);
 }
 
 .info-grid strong {
-  color: #140a1f;
+  color: var(--primary-purple);
   font-size: 16px;
 }
 
@@ -203,28 +203,28 @@
 .module-card {
   padding: 14px;
   border: 1px solid rgba(88, 42, 117, 0.08);
-  border-radius: 14px;
+  border-radius: var(--border-radius);
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 8px 24px rgba(15, 4, 34, 0.06);
 }
 
 .module-card h4 {
   margin: 6px 0;
-  color: #1f0f31;
+  color: var(--primary-purple);
 }
 
 .module-card p {
   margin: 0;
-  color: #4f415f;
+  color: var(--primary-purple);
   line-height: 1.4;
 }
 
 .module-num {
   display: inline-block;
   background: rgba(255, 210, 0, 0.32);
-  color: #3b2b4d;
+  color: var(--primary-purple);
   font-weight: 800;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   padding: 6px 10px;
   font-size: 12px;
 }
@@ -240,19 +240,19 @@
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #6a587c;
+  color: var(--primary-purple);
   font-weight: 800;
   margin: 0 0 4px;
 }
 
 .muted {
-  color: #5b4a6e;
+  color: var(--primary-purple);
   margin: 6px 0 0;
 }
 
 .note {
   margin-top: 14px;
-  color: #443454;
+  color: var(--primary-purple);
   font-weight: 600;
 }
 
@@ -263,7 +263,7 @@
 
 .closing p {
   margin: 8px 0 14px;
-  color: #362645;
+  color: var(--primary-purple);
 }
 
 @media (max-width: 768px) {
@@ -282,5 +282,226 @@
   .cta-row .btn {
     flex: 1;
     justify-content: center;
+  }
+}
+
+
+/* App Download Section - Compact Left/Right Layout */
+.app-download-section {
+  padding: clamp(2rem, 3vw, 2.5rem) 0;
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--primary-purple) 6%, var(--white) 94%) 0%,
+    color-mix(in srgb, var(--accent-yellow) 4%, var(--white) 96%) 100%);
+}
+
+.app-download-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  border: 1px solid color-mix(in srgb, var(--primary-purple) 12%, transparent);
+  box-shadow: 0 16px 48px color-mix(in srgb, var(--primary-purple) 12%, transparent);
+  overflow: hidden;
+}
+
+.app-download-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0;
+}
+
+.app-download-left {
+  padding: clamp(24px, 3vw, 32px);
+}
+
+.app-download-right {
+  padding: clamp(24px, 3vw, 32px);
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--primary-purple) 8%, var(--white) 92%),
+    color-mix(in srgb, var(--accent-yellow) 6%, var(--white) 94%));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid color-mix(in srgb, var(--primary-purple) 10%, transparent);
+}
+
+.app-header {
+  margin-bottom: 20px;
+}
+
+.app-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--primary-purple) 12%, var(--white) 88%),
+    color-mix(in srgb, var(--accent-yellow) 8%, var(--white) 92%));
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--primary-purple);
+  margin-bottom: 10px;
+  border: 1px solid color-mix(in srgb, var(--primary-purple) 12%, transparent);
+}
+
+.app-title {
+  margin: 10px 0 6px;
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 800;
+  color: var(--primary-purple);
+  line-height: 1.3;
+}
+
+.app-subtitle {
+  margin: 0;
+  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 700;
+  color: color-mix(in srgb, var(--primary-purple) 75%, var(--black) 25%);
+}
+
+.app-features-list {
+  margin-bottom: 18px;
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.feature-item {
+  font-size: 14px;
+  color: color-mix(in srgb, var(--primary-purple) 80%, var(--black) 20%);
+  font-weight: 600;
+  padding: 6px 0;
+  line-height: 1.4;
+}
+
+.app-courses-list {
+  margin-bottom: 16px;
+}
+
+.courses-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--primary-purple);
+  margin: 0 0 10px;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 12px;
+  background: color-mix(in srgb, var(--primary-purple) 4%, var(--white) 96%);
+  border-radius: var(--border-radius);
+  border: 1px solid color-mix(in srgb, var(--primary-purple) 8%, transparent);
+}
+
+.course-item {
+  font-size: 13px;
+  color: color-mix(in srgb, var(--primary-purple) 75%, var(--black) 25%);
+  font-weight: 600;
+  padding: 4px 0;
+  line-height: 1.4;
+}
+
+.app-highlight-text {
+  margin: 0;
+}
+
+.app-highlight-text p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-purple);
+  line-height: 1.5;
+}
+
+.app-cta-box {
+  text-align: center;
+}
+
+.app-cta-text {
+  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 800;
+  color: var(--primary-purple);
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+.play-store-link {
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.play-store-badge {
+  height: 56px;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+}
+
+.play-store-link:hover .play-store-badge {
+  transform: scale(1.08);
+  filter: drop-shadow(0 8px 16px rgba(88, 42, 117, 0.25));
+}
+
+.play-store-link:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive for App Download Section */
+@media (max-width: 992px) {
+  .app-download-section .dm-container {
+    padding-left: 18px;
+  }
+
+  .app-download-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-download-right {
+    border-left: none;
+    border-top: 1px solid color-mix(in srgb, var(--primary-purple) 10%, transparent);
+  }
+
+  .feature-row {
+    grid-template-columns: 1fr;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .app-download-left,
+  .app-download-right {
+    padding: 20px 18px;
+  }
+
+  .play-store-badge {
+    height: 50px;
+  }
+
+  .app-title {
+    font-size: 18px;
+  }
+
+  .app-subtitle {
+    font-size: 15px;
+  }
+
+  .app-cta-text {
+    font-size: 15px;
+  }
+
+  .feature-item,
+  .course-item {
+    font-size: 12px;
   }
 }

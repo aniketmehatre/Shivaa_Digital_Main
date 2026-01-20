@@ -21,6 +21,7 @@ type Faq = {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BeYourOwnBossComponent implements OnInit {
+  
   private readonly canonicalUrl = 'https://digitalshivaa.com/learn/digital-marketing';
   private readonly canonicalId = 'canonical-digital-marketing';
   private readonly schemaId = 'schema-digital-marketing';

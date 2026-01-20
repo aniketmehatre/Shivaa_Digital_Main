@@ -8,12 +8,12 @@
     --page-width: 1200px;
     --page-padding-mobile: 0.9375rem; /* 15px */
     --page-padding-desktop: 1.875rem; /* 30px */
+    --border-radius: 15px;
     --page-padding: clamp(var(--page-padding-mobile), 4vw, var(--page-padding-desktop));
 }
 
 *, *::before, *::after {
     box-sizing: border-box;
-    font-family: var(--main-font);
 }
 
 html {
@@ -29,6 +29,7 @@ body {
     overflow-x: hidden;
     line-height: 1.6;
     font-weight: 400;
+    font-family: var(--main-font);
 }
 
 img, picture {
@@ -61,4 +62,29 @@ button {
 
 .it-course-dialog .mat-mdc-dialog-content {
     padding-top: 8px;
+}
+
+/* Centered Service Form Dialog */
+.centered-service-dialog .mat-mdc-dialog-container {
+    padding: 0 !important;
+    border-radius: 20px !important;
+    overflow: hidden;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2) !important;
+}
+
+.centered-service-dialog .mdc-dialog__surface {
+    border-radius: 20px !important;
+    overflow: hidden;
+}
+
+.centered-service-dialog .mat-mdc-dialog-content {
+    padding: 0 !important;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+/* Dialog Backdrop */
+.dialog-backdrop {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(4px);
 }

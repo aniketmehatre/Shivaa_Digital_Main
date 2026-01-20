@@ -1,0 +1,169 @@
+.faq-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f7f5ff 0%, #ffffff 50%);
+  padding: clamp(2rem, 4vw, 3rem) 0;
+}
+
+.faq-header {
+  max-width: 1000px;
+  margin: 0 auto 2.5rem;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.faq-title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--primary-purple);
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.faq-intro {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--black) 70%, var(--white) 30%);
+  margin: 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+}
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-panel {
+  background: var(--white) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(88, 42, 117, 0.08) !important;
+  border: 1px solid color-mix(in srgb, var(--primary-purple) 10%, transparent) !important;
+  transition: all 0.3s ease !important;
+  overflow: hidden;
+}
+
+.faq-panel:hover {
+  box-shadow: 0 8px 24px rgba(88, 42, 117, 0.12) !important;
+  border-color: color-mix(in srgb, var(--primary-purple) 20%, transparent) !important;
+}
+
+.faq-panel.mat-expanded {
+  border-color: var(--primary-purple) !important;
+  box-shadow: 0 8px 24px rgba(88, 42, 117, 0.15) !important;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-weight: 600;
+  color: var(--primary-purple);
+}
+
+.faq-question i {
+  color: var(--accent-yellow);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.faq-answer {
+  padding: 0.5rem 0;
+}
+
+.faq-answer p {
+  font-size: clamp(0.95rem, 1.8vw, 1rem);
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--black) 75%, var(--white) 25%);
+  margin: 0;
+}
+
+/* Material Accordion Customization */
+::ng-deep .faq-accordion .mat-expansion-panel-header {
+  padding: 1.25rem 1.5rem !important;
+  border-radius: 12px !important;
+}
+
+::ng-deep .faq-accordion .mat-expansion-panel-header:hover {
+  background: color-mix(in srgb, var(--primary-purple) 3%, var(--white) 97%) !important;
+}
+
+::ng-deep .faq-accordion .mat-expansion-panel-body {
+  padding: 0 1.5rem 1.25rem !important;
+}
+
+::ng-deep .faq-accordion .mat-expansion-panel-header-title {
+  color: inherit !important;
+  font-weight: inherit !important;
+}
+
+::ng-deep .faq-accordion .mat-expansion-indicator::after {
+  color: var(--primary-purple) !important;
+  border-width: 2px !important;
+}
+
+::ng-deep .faq-accordion .mat-expanded .mat-expansion-indicator::after {
+  color: var(--primary-purple) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .faq-page {
+    padding: clamp(1.5rem, 3vw, 2rem) 0;
+  }
+
+  .faq-header {
+    margin-bottom: 2rem;
+  }
+
+  .faq-accordion {
+    gap: 0.75rem;
+  }
+
+  ::ng-deep .faq-accordion .mat-expansion-panel-header {
+    padding: 1rem 1.25rem !important;
+  }
+
+  ::ng-deep .faq-accordion .mat-expansion-panel-body {
+    padding: 0 1.25rem 1rem !important;
+  }
+
+  .faq-question {
+    font-size: 0.95rem;
+  }
+
+  .faq-question i {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-accordion {
+    gap: 0.5rem;
+  }
+
+  .faq-panel {
+    border-radius: 10px !important;
+  }
+
+  ::ng-deep .faq-accordion .mat-expansion-panel-header {
+    padding: 0.875rem 1rem !important;
+  }
+
+  ::ng-deep .faq-accordion .mat-expansion-panel-body {
+    padding: 0 1rem 0.875rem !important;
+  }
+
+  .faq-question {
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+}

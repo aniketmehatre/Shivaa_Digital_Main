@@ -1,234 +1,246 @@
 <main class="dm-landing">
-    <header class="dm-hero" aria-label="Digital marketing course hero">
-        <div class="dm-hero-bg dm-hero-bg-main" aria-hidden="true"></div>
-        <div class="dm-hero-bg dm-hero-bg-accent" aria-hidden="true"></div>
+  <header class="dm-hero" aria-label="Digital marketing course hero">
+      <div class="dm-hero-bg dm-hero-bg-main" aria-hidden="true"></div>
+      <div class="dm-hero-bg dm-hero-bg-accent" aria-hidden="true"></div>
 
-        <div class="container dm-container">
-            <div class="dm-hero-grid">
-                <div class="dm-hero-copy">
-                    <div class="dm-kicker">Online + Offline • Agency-Ready Training</div>
+      <div class="container dm-container">
+          <div class="dm-hero-grid">
+              <div class="dm-hero-copy">
+                  <div class="dm-kicker">Online + Offline • Agency-Ready Training</div>
 
-                    <h1 class="dm-hero-title">
-                        Digital Marketing Course in Pune
-                        <span class="dm-hero-title-accent">Launch Your Own Agency</span>
-                    </h1>
+                  <h1 class="dm-hero-title">
+                      Digital Marketing Course in Pune
+                      <span class="dm-hero-title-accent">Launch Your Own Agency</span>
+                  </h1>
 
-                    <p class="dm-hero-desc">
-                        Learn industry-ready skills designed to help you start a career, grow your business, or launch
-                        your own digital marketing agency with expert mentorship.
-                    </p>
+                  <p class="dm-hero-desc">
+                      Learn industry-ready skills designed to help you start a career, grow your business, or launch
+                      your own digital marketing agency with expert mentorship.
+                  </p>
 
-                    <ul class="dm-hero-points" aria-label="Key benefits">
-                        <li>Online Classes</li>
-                        <li>Live Campaigns</li>
-                        <li>Agency Support</li>
-                    </ul>
+                  <ul class="dm-hero-points" aria-label="Key benefits">
+                      <li>Online Classes</li>
+                      <li>Live Campaigns</li>
+                      <li>Agency Support</li>
+                  </ul>
 
-                    <div class="dm-hero-actions" aria-label="Primary actions">
-                        <a class="dm-btn dm-btn-primary" [href]="demoHref" target="_blank" rel="noopener noreferrer">
-                            Book demo class
-                        </a>
-                        <a class="dm-btn dm-btn-ghost" [href]="brochureHref" target="_blank" rel="noopener noreferrer">
-                            Download brochure
-                        </a>
-                    </div>
+                  <div class="dm-trust" aria-label="Highlights">
+                      <div class="dm-trust-item">
+                          <div class="dm-trust-title">Updated syllabus</div>
+                          <div class="dm-trust-sub">Tools + strategy</div>
+                      </div>
+                      <div class="dm-trust-item">
+                          <div class="dm-trust-title">Live Campaigns</div>
+                          <div class="dm-trust-sub">Hands-on campaign execution</div>
+                      </div>
+                      <div class="dm-trust-item">
+                          <div class="dm-trust-title">Agency Support</div>
+                          <div class="dm-trust-sub">Till you launch your own agency</div>
+                      </div>
+                  </div>
+              </div>
 
-                    <div class="dm-trust" aria-label="Highlights">
-                        <div class="dm-trust-item">
-                            <div class="dm-trust-title">Updated syllabus</div>
-                            <div class="dm-trust-sub">Tools + strategy</div>
-                        </div>
-                        <div class="dm-trust-item">
-                            <div class="dm-trust-title">Live Campaigns</div>
-                            <div class="dm-trust-sub">Hands-on campaign execution</div>
-                        </div>
-                        <div class="dm-trust-item">
-                            <div class="dm-trust-title">Agency Support</div>
-                            <div class="dm-trust-sub">Till you launch your own agency</div>
-                        </div>
-                    </div>
-                    
-                    
-        
-                    <nav class="dm-subnav" aria-label="Jump links">
-                        <a class="dm-subnav-link" href="#overview">Overview</a>
-                        <a class="dm-subnav-link" href="#syllabus">Syllabus</a>
-                        <a class="dm-subnav-link" href="#who">Who can join</a>
-                        <a class="dm-subnav-link" href="#faq">FAQs</a>
-                    </nav>
-                </div>
+              <aside class="dm-hero-aside" aria-label="Enquiry form">
+                  <div class="dm-hero-card">
+                      <app-learn-form 
+                          [heading]="'Get fees & syllabus details'"
+                          [sourcePage]="'/learn/digital-marketing'"
+                          [courseOptions]="['Digital Marketing']">
+                        </app-learn-form>
+                  </div>
+              </aside>
+          </div>
+      </div>
+  </header>
 
-                <aside class="dm-hero-aside" aria-label="Enquiry form">
-                    <div class="dm-hero-card">
-                        <app-learn-form [heading]="'Get fees & syllabus details'"
-                            [subheading]="'Fill this form to get brochure + batch timings on WhatsApp.'"
-                            [submitText]="'Get details'" [sourcePage]="'/learn/digital-marketing'"
-                            [courseOptions]="['Digital Marketing']"></app-learn-form>
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </header>
+  <section id="overview" class="dm-section">
+      <div class="container dm-container">
+          <div class="dm-section-head">
+              <h2 class="dm-h2">Course overview</h2>
+              <p class="dm-lead">A job-oriented program for students, job seekers and entrepreneurs.</p>
+          </div>
 
-    <section id="overview" class="dm-section">
-        <div class="container dm-container">
-            <div class="dm-section-head">
-                <h2 class="dm-h2">Course overview</h2>
-                <p class="dm-lead">A job-oriented program for students, job seekers and entrepreneurs.</p>
-            </div>
+          <div class="dm-stats" role="list" aria-label="Course details">
+              <div class="dm-stat" role="listitem">
+                  <div class="dm-stat-k">Mode</div>
+                  <div class="dm-stat-v">Online + Offline</div>
+              </div>
+              <div class="dm-stat" role="listitem">
+                  <div class="dm-stat-k">Duration</div>
+                  <div class="dm-stat-v">3 Months + Projects</div>
+              </div>
+              <div class="dm-stat" role="listitem">
+                  <div class="dm-stat-k">Eligibility</div>
+                  <div class="dm-stat-v">All Graduates</div>
+              </div>
+              <div class="dm-stat" role="listitem">
+                  <div class="dm-stat-k">Certification</div>
+                  <div class="dm-stat-v">Industry recognized</div>
+              </div>
+          </div>
 
-            <div class="dm-stats" role="list" aria-label="Course details">
-                <div class="dm-stat" role="listitem">
-                    <div class="dm-stat-k">Mode</div>
-                    <div class="dm-stat-v">Online + Offline</div>
-                </div>
-                <div class="dm-stat" role="listitem">
-                    <div class="dm-stat-k">Duration</div>
-                    <div class="dm-stat-v">3 Months + Projects</div>
-                </div>
-                <div class="dm-stat" role="listitem">
-                    <div class="dm-stat-k">Eligibility</div>
-                    <div class="dm-stat-v">All Graduates</div>
-                </div>
-                <div class="dm-stat" role="listitem">
-                    <div class="dm-stat-k">Certification</div>
-                    <div class="dm-stat-v">Industry recognized</div>
-                </div>
-            </div>
+          <div class="dm-features" aria-label="Key outcomes">
+              <div class="dm-feature">
+                  <div class="dm-feature-ic" aria-hidden="true">✔</div>
+                  <div>
+                      <div class="dm-feature-title">Industry mentors</div>
+                      <div class="dm-feature-sub">Learn from professionals working on real campaigns.</div>
+                  </div>
+              </div>
+              <div class="dm-feature">
+                  <div class="dm-feature-ic" aria-hidden="true">✔</div>
+                  <div>
+                      <div class="dm-feature-title">Hands-on tools</div>
+                      <div class="dm-feature-sub">SEO + ads + analytics tools with guided practice.</div>
+                  </div>
+              </div>
+              <div class="dm-feature">
+                  <div class="dm-feature-ic" aria-hidden="true">✔</div>
+                  <div>
+                      <div class="dm-feature-title">Agency Support</div>
+                      <div class="dm-feature-sub">Till you launch your own agency</div>
+                  </div>
+              </div>
+              <div class="dm-feature">
+                  <div class="dm-feature-ic" aria-hidden="true">✔</div>
+                  <div>
+                      <div class="dm-feature-title">Live Campaigns</div>
+                      <div class="dm-feature-sub">Hands-on campaign execution</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
 
-            <div class="dm-features" aria-label="Key outcomes">
-                <div class="dm-feature">
-                    <div class="dm-feature-ic" aria-hidden="true">✔</div>
-                    <div>
-                        <div class="dm-feature-title">Industry mentors</div>
-                        <div class="dm-feature-sub">Learn from professionals working on real campaigns.</div>
-                    </div>
-                </div>
-                <div class="dm-feature">
-                    <div class="dm-feature-ic" aria-hidden="true">✔</div>
-                    <div>
-                        <div class="dm-feature-title">Hands-on tools</div>
-                        <div class="dm-feature-sub">SEO + ads + analytics tools with guided practice.</div>
-                    </div>
-                </div>
-                <div class="dm-feature">
-                    <div class="dm-feature-ic" aria-hidden="true">✔</div>
-                    <div>
-                        <div class="dm-feature-title">Agency Support</div>
-                        <div class="dm-feature-sub">Till you launch your own agency</div>
-                    </div>
-                </div>
-                <div class="dm-feature">
-                    <div class="dm-feature-ic" aria-hidden="true">✔</div>
-                    <div>
-                        <div class="dm-feature-title">Live Campaigns</div>
-                        <div class="dm-feature-sub">Hands-on campaign execution</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section id="syllabus" class="dm-section dm-surface">
+      <div class="container dm-container">
+          <div class="dm-section-head">
+              <h2 class="dm-h2">What you will learn</h2>
+              <p class="dm-lead">Structured modules with practical outcomes and assignments.</p>
+          </div>
 
-    <section id="syllabus" class="dm-section dm-surface">
-        <div class="container dm-container">
-            <div class="dm-section-head">
-                <h2 class="dm-h2">What you will learn</h2>
-                <p class="dm-lead">Structured modules with practical outcomes and assignments.</p>
-            </div>
+          <div class="dm-modules" role="list">
+              <article class="dm-module" role="listitem" *ngFor="let m of syllabus">
+                  <h3 class="dm-h3">{{ m.title }}</h3>
+                  <p class="dm-muted">{{ m.subtitle }}</p>
+                  <ul class="dm-list">
+                      <li *ngFor="let b of m.bullets">{{ b }}</li>
+                  </ul>
+              </article>
+          </div>
+      </div>
+  </section>
 
-            <div class="dm-modules" role="list">
-                <article class="dm-module" role="listitem" *ngFor="let m of syllabus">
-                    <h3 class="dm-h3">{{ m.title }}</h3>
-                    <p class="dm-muted">{{ m.subtitle }}</p>
-                    <ul class="dm-list">
-                        <li *ngFor="let b of m.bullets">{{ b }}</li>
-                    </ul>
-                </article>
-            </div>
-        </div>
-    </section>
+  <section id="who" class="dm-section">
+      <div class="container dm-container">
+          <div class="dm-section-head">
+              <h2 class="dm-h2">Who should join?</h2>
+              <p class="dm-lead">No prior marketing or technical experience required.</p>
+          </div>
 
-    <section id="who" class="dm-section">
-        <div class="container dm-container">
-            <div class="dm-section-head">
-                <h2 class="dm-h2">Who should join?</h2>
-                <p class="dm-lead">No prior marketing or technical experience required.</p>
-            </div>
+          <div class="dm-audience" role="list">
+              <div class="dm-audience-card" role="listitem">
+                  <div class="dm-audience-ic" aria-hidden="true">🎓</div>
+                  <h3 class="dm-h3-sm">Students & Freshers</h3>
+                  <p class="dm-muted">Start from basics and build your first portfolio.</p>
+              </div>
+              <div class="dm-audience-card" role="listitem">
+                  <div class="dm-audience-ic" aria-hidden="true">🔍</div>
+                  <h3 class="dm-h3-sm">Job seekers</h3>
+                  <p class="dm-muted">Get interview-ready with practical skills.</p>
+              </div>
+              <div class="dm-audience-card" role="listitem">
+                  <div class="dm-audience-ic" aria-hidden="true">💼</div>
+                  <h3 class="dm-h3-sm">Working professionals</h3>
+                  <p class="dm-muted">Upgrade for better roles and higher packages.</p>
+              </div>
+              <div class="dm-audience-card" role="listitem">
+                  <div class="dm-audience-ic" aria-hidden="true">📈</div>
+                  <h3 class="dm-h3-sm">Business owners</h3>
+                  <p class="dm-muted">Grow leads and sales using digital channels.</p>
+              </div>
+          </div>
+      </div>
+  </section>
 
-            <div class="dm-audience" role="list">
-                <div class="dm-audience-card" role="listitem">
-                    <div class="dm-audience-ic" aria-hidden="true">🎓</div>
-                    <h3 class="dm-h3-sm">Students & Freshers</h3>
-                    <p class="dm-muted">Start from basics and build your first portfolio.</p>
-                </div>
-                <div class="dm-audience-card" role="listitem">
-                    <div class="dm-audience-ic" aria-hidden="true">🔍</div>
-                    <h3 class="dm-h3-sm">Job seekers</h3>
-                    <p class="dm-muted">Get interview-ready with practical skills.</p>
-                </div>
-                <div class="dm-audience-card" role="listitem">
-                    <div class="dm-audience-ic" aria-hidden="true">💼</div>
-                    <h3 class="dm-h3-sm">Working professionals</h3>
-                    <p class="dm-muted">Upgrade for better roles and higher packages.</p>
-                </div>
-                <div class="dm-audience-card" role="listitem">
-                    <div class="dm-audience-ic" aria-hidden="true">📈</div>
-                    <h3 class="dm-h3-sm">Business owners</h3>
-                    <p class="dm-muted">Grow leads and sales using digital channels.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section id="success" class="dm-section dm-surface" aria-label="Placed students">
+      <div class="container dm-container">
+          <div class="dm-section-head">
+              <h2 class="dm-h2">Placed students</h2>
+              <p class="dm-lead">Real stories from our students and entrepreneurs.</p>
+          </div>
 
-    <section id="success" class="dm-section dm-surface" aria-label="Placed students">
-        <div class="container dm-container">
-            <div class="dm-section-head">
-                <h2 class="dm-h2">Placed students</h2>
-                <p class="dm-lead">Real stories from our students and entrepreneurs.</p>
-            </div>
+          <div class="dm-gallery" role="list" aria-label="Testimonials gallery">
+              <figure class="dm-shot" role="listitem" *ngFor="let img of testimonials">
+                  <img class="dm-shot-img" [src]="img" alt="Placed student testimonial" loading="lazy"
+                      decoding="async" />
+              </figure>
+          </div>
+      </div>
+  </section>
 
-            <div class="dm-gallery" role="list" aria-label="Testimonials gallery">
-                <figure class="dm-shot" role="listitem" *ngFor="let img of testimonials">
-                    <img class="dm-shot-img" [src]="img" alt="Placed student testimonial" loading="lazy"
-                        decoding="async" />
-                </figure>
-            </div>
-        </div>
-    </section>
+  <section id="faq" class="dm-section dm-faq" aria-label="Frequently asked questions">
+      <div class="container dm-container">
+          <div class="dm-section-head">
+              <h2 class="dm-h2">Frequently asked questions</h2>
+              <p class="dm-lead">Quick answers about batches, certification and placement support.</p>
+          </div>
 
-    <section id="faq" class="dm-section dm-faq" aria-label="Frequently asked questions">
-        <div class="container dm-container">
-            <div class="dm-section-head">
-                <h2 class="dm-h2">Frequently asked questions</h2>
-                <p class="dm-lead">Quick answers about batches, certification and placement support.</p>
-            </div>
-
-            <mat-accordion class="dm-accordion" multi="multi">
-                <mat-expansion-panel class="dm-panel" *ngFor="let f of faqs">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>{{ f.question }}</mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <p class="dm-muted dm-faq-answer">{{ f.answer }}</p>
-                </mat-expansion-panel>
-            </mat-accordion>
-        </div>
-    </section>
-
-    <section class="dm-section dm-cta" aria-label="Call to action">
-        <div class="container dm-container">
-            <div class="dm-cta-card">
-                <div class="dm-cta-badge">Limited seats</div>
-                <h2 class="dm-h2 dm-cta-title">Ready to start your digital marketing career?</h2>
-                <p class="dm-lead dm-cta-lead">
-                    Call us or message on WhatsApp to get batch timings, fees and syllabus details.
-                </p>
-                <div class="dm-cta-actions">
-                    <a class="dm-btn dm-btn-primary" [href]="phoneHref">Call now</a>
-                    <a class="dm-btn dm-btn-whatsapp" [href]="whatsappHref" target="_blank"
-                        rel="noopener noreferrer">WhatsApp</a>
-                    <a class="dm-btn dm-btn-ghost" href="#syllabus">See syllabus</a>
-                </div>
-            </div>
-        </div>
-    </section>
+          <mat-accordion class="dm-accordion" multi="multi">
+              <mat-expansion-panel class="dm-panel" *ngFor="let f of faqs">
+                  <mat-expansion-panel-header>
+                      <mat-panel-title>{{ f.question }}</mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <p class="dm-muted dm-faq-answer">{{ f.answer }}</p>
+              </mat-expansion-panel>
+          </mat-accordion>
+      </div>
+  </section>
 </main>
+
+<!-- App Download Section -->
+<section class="app-download-section">
+    <div class="container dm-container">
+        <div class="app-download-card">
+            <div class="app-download-grid">
+                <div class="app-download-left">
+                    <div class="app-header">
+                        <span class="app-badge">AI Digital Marketing</span>
+                        <h3 class="app-title">शिका आता आपल्या मराठी भाषेत</h3>
+                        <p class="app-subtitle">आजच Shivaa Digital App डाउनलोड करा</p>
+                    </div>
+                    
+                    <div class="app-features-list">
+                        <div class="feature-row">
+                            <div class="feature-item">✅ AI + Digital Marketing Courses</div>
+                            <div class="feature-item">✅ 1 Year Full Access</div>
+
+                        </div>
+                        <div class="feature-row">
+                            <div class="feature-item">✅ Live Lectures / Recorded Videos</div>
+                            <div class="feature-item">✅ EMI Facility Available</div>
+                        </div>
+                    </div>
+                    <div class="app-highlight-text">
+                        <p>Practical Training | Industry-Oriented Skills</p>
+                    </div>
+                </div>
+
+                <div class="app-download-right">
+                    <div class="app-cta-box">
+                        <p class="app-cta-text">आजच App डाउनलोड करा आणि Digital Career सुरू करा!</p>
+                        <a href="https://play.google.com/store/apps/details?id=co.george.pnujm&pcampaignid=web_share" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="play-store-link"
+                           aria-label="Download Shivaa Digital App from Play Store">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+                                 alt="Get it on Google Play" 
+                                 class="play-store-badge">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

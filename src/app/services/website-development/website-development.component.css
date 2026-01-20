@@ -53,7 +53,7 @@
   background: #fff;
   color: #2c2140;
   border: 1px solid #e3d9f3;
-  border-radius: 999px;
+  border-radius: var(--border-radius);
   padding: 8px 14px;
   font-weight: 600;
   font-size: 13px;
@@ -73,7 +73,7 @@
   justify-content: center;
   gap: 8px;
   padding: 12px 18px;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   font-weight: 700;
   border: none;
   cursor: pointer;
@@ -113,7 +113,7 @@
 .metric-card {
   background: #fff;
   border: 1px solid #ede5f8;
-  border-radius: 16px;
+  border-radius: var(--border-radius);
   padding: 14px 16px;
   box-shadow: 0 10px 30px rgba(88, 42, 117, 0.08);
 }
@@ -137,7 +137,7 @@
 .hero-image {
   background: linear-gradient(160deg, #f1e7ff 0%, #ffffff 100%);
   border: 1px solid #ebdffc;
-  border-radius: 24px;
+  border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: 0 20px 48px rgba(88, 42, 117, 0.18);
 }
@@ -154,7 +154,7 @@
   right: 12px;
   background: #fff;
   padding: 16px 18px;
-  border-radius: 16px;
+  border-radius: var(--border-radius);
   border: 1px solid #eadffc;
   box-shadow: 0 20px 40px rgba(88, 42, 117, 0.2);
   max-width: 260px;
@@ -188,7 +188,7 @@
 
 .project-card {
   background: #fff;
-  border-radius: 18px;
+  border-radius: var(--border-radius);
   border: 1px solid #ede4f8;
   box-shadow: 0 14px 32px rgba(26, 16, 48, 0.08);
   overflow: hidden;
@@ -226,7 +226,7 @@
   background: rgba(88, 42, 117, 0.92);
   color: #fff;
   padding: 8px 12px;
-  border-radius: 999px;
+  border-radius: var(--border-radius);
   font-size: 12px;
   font-weight: 700;
 }
@@ -260,7 +260,7 @@
 .tag {
   background: #f4edff;
   color: #3b2757;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   padding: 6px 10px;
   font-size: 12px;
   font-weight: 700;
@@ -364,7 +364,7 @@
   width: 26px;
   height: 4px;
   background: #e43b3b;
-  border-radius: 999px;
+  border-radius: var(--border-radius);
 }
 
 .label-text {
@@ -386,7 +386,7 @@
   background: #fff;
   border: 1px solid #ede4f8;
   padding: 14px 14px 14px 28px;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   box-shadow: 0 12px 26px rgba(26, 16, 48, 0.08);
   font-weight: 700;
   color: #1f1f2c;
@@ -422,7 +422,7 @@
 .step {
   background: #fff;
   border: 1px dashed #d9c9f4;
-  border-radius: 16px;
+  border-radius: var(--border-radius);
   padding: 16px;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -465,7 +465,7 @@
 .choose-card {
   background: linear-gradient(120deg, #5d2d7e, #9b63d4);
   color: #fff;
-  border-radius: 14px;
+  border-radius: var(--border-radius);
   padding: 18px 16px;
   font-weight: 800;
   text-align: center;
@@ -473,9 +473,6 @@
 }
 
 @media (max-width: 768px) {
-  .container {
-    padding: 56px 0;
-  }
 
   .hero-metrics {
     grid-template-columns: 1fr 1fr;

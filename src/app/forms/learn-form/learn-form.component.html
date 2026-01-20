@@ -1,45 +1,48 @@
 <mat-card class="enroll-card">
   <div class="enroll-header">
-    <div class="enroll-badge">Free Counseling</div>
     <h3 class="enroll-title">{{ heading }}</h3>
     <p class="enroll-subtitle">{{ subheading }}</p>
   </div>
 
   <form [formGroup]="enquiryForm" (ngSubmit)="onSubmit()" class="enroll-form">
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Full name</mat-label>
-      <input matInput formControlName="name" placeholder="Enter your name" autocomplete="name" />
-      <mat-error *ngIf="enquiryForm.get('name')?.touched && enquiryForm.get('name')?.invalid">
-        Name is required
-      </mat-error>
-    </mat-form-field>
+    <div class="enroll-row">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Full name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter your name" autocomplete="name" />
+        <mat-error *ngIf="enquiryForm.get('name')?.touched && enquiryForm.get('name')?.invalid">
+          Name is required
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" formControlName="email" placeholder="example@gmail.com" autocomplete="email" />
-      <mat-error *ngIf="enquiryForm.get('email')?.touched && enquiryForm.get('email')?.invalid">
-        Enter a valid email
-      </mat-error>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="example@gmail.com" autocomplete="email" />
+        <mat-error *ngIf="enquiryForm.get('email')?.touched && enquiryForm.get('email')?.invalid">
+          Enter a valid email
+        </mat-error>
+      </mat-form-field>
+    </div>
 
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Phone</mat-label>
-      <input matInput type="tel" formControlName="phone" placeholder="9876543210" autocomplete="tel" />
-      <mat-error *ngIf="enquiryForm.get('phone')?.touched && enquiryForm.get('phone')?.invalid">
-        Enter a valid 10-digit phone number
-      </mat-error>
-    </mat-form-field>
+    <div class="enroll-row">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Phone</mat-label>
+        <input matInput type="tel" formControlName="phone" placeholder="9876543210" autocomplete="tel" />
+        <mat-error *ngIf="enquiryForm.get('phone')?.touched && enquiryForm.get('phone')?.invalid">
+          Enter a valid 10-digit phone number
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Select a course</mat-label>
-      <mat-select formControlName="course">
-        <mat-option value="" disabled>Select one</mat-option>
-        <mat-option *ngFor="let c of courseOptions" [value]="c">{{ c }}</mat-option>
-      </mat-select>
-      <mat-error *ngIf="enquiryForm.get('course')?.touched && enquiryForm.get('course')?.invalid">
-        Please select a course
-      </mat-error>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Select a course</mat-label>
+        <mat-select formControlName="course">
+          <mat-option value="" disabled>Select one</mat-option>
+          <mat-option *ngFor="let c of courseOptions" [value]="c">{{ c }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="enquiryForm.get('course')?.touched && enquiryForm.get('course')?.invalid">
+          Please select a course
+        </mat-error>
+      </mat-form-field>
+    </div>
 
     <div class="enroll-row">
       <mat-form-field appearance="outline" class="w-100">

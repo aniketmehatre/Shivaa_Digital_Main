@@ -1,143 +1,144 @@
-<section class="client-section position-relative">
-  <div class="container cd-wrap">
-
-    <div class="card cd-hero-card border-0">
-      <div class="card-body cd-hero-body">
-        <div class="cd-badge mb-3">DigitalShivaa's Client Diary</div>
-
-        <h2 class="cd-hero-title">
-          Discover Pune's Top Digital Advertising Agencies
-        </h2>
-
-        <p class="cd-hero-subtitle">
-          Explore success stories &amp; real outcomes from Pune’s leading digital
-          advertising teams—curated in.
+<main class="client-diary">
+  <!-- Hero Section -->
+  <section class="diary-hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">DigitalShivaa's Client Diary</h1>
+        <p class="hero-subtitle">Discover Pune's Top Digital Advertising Agencies</p>
+        <p class="hero-description">
+          Explore success stories & real outcomes from Pune's leading digital advertising teams—curated in our client diary.
         </p>
-
-        <div class="cd-stats mt-4">
-          <div class="cd-stat">
-            <div class="cd-stat-value">{{ diaryImages.length }}+</div>
-          </div>
-          <div class="cd-stat">
-            <div class="cd-stat-value">{{ videos.length || 0 }}</div>
-          </div>
-        </div>
       </div>
     </div>
+  </section>
 
-    <div class="cd-tabs-wrap text-center">
-      <div class="cd-tabs" role="tablist" aria-label="Client diary sections">
-        <button
-          type="button"
-          class="btn custom-tab-btn"
-          role="tab"
-          [attr.aria-selected]="selectedSection === 'diary'"
-          [class.active-btn]="selectedSection === 'diary'"
-          (click)="setSection('diary')"
-        >
-          <span class="cd-tab-icon" aria-hidden="true">📖</span>
-          <span>Diary</span>
-        </button>
-
-        <button
-          type="button"
-          class="btn custom-tab-btn"
-          role="tab"
-          [attr.aria-selected]="selectedSection === 'video'"
-          [class.active-btn]="selectedSection === 'video'"
-          (click)="setSection('video')"
-        >
-          <span class="cd-tab-icon" aria-hidden="true">🎥</span>
-          <span>Video</span>
-        </button>
-      </div>
+  <!-- Navigation Tabs -->
+  <section class="diary-tabs">
+    <div class="tabs-container">
+      <button 
+        class="tab-btn" 
+        [class.active]="selectedSection === 'diary'"
+        (click)="setSection('diary')">
+        <i class="fas fa-images"></i>
+        <span>Image Gallery</span>
+      </button>
+      <button 
+        class="tab-btn" 
+        [class.active]="selectedSection === 'video'"
+        (click)="setSection('video')">
+        <i class="fas fa-video"></i>
+        <span>Video Gallery</span>
+      </button>
     </div>
+  </section>
 
-    <!-- Diary Section -->
-    <div *ngIf="selectedSection === 'diary'" class="cd-section" [@fadeInAnimation]="selectedSection">
-      <div class="cd-section-label">diary-card</div>
+  <!-- Image Gallery Section -->
+  <section 
+    #diaryContainer
+    class="diary-section" 
+    *ngIf="selectedSection === 'diary'"
+    [@fadeInAnimation]>
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Our Client Success Stories</h2>
+        <p>Visual showcase of our digital marketing achievements</p>
+      </div>
 
-      <div #diaryContainer class="row g-4 cd-grid">
-        <div
-          class="col-12 col-sm-6 col-lg-4"
-          *ngFor="let item of diaryCards; trackBy: trackByDiaryCard"
-        >
-          <div class="card diary-card h-100">
-            <div class="cd-media-frame">
-              <img
-                [src]="'assets/img/Client-dairy/' + item.image"
-                class="img-fluid diary-img"
-                [alt]="'Client diary image: ' + item.title"
+      <div class="image-gallery">
+        <div 
+          class="gallery-item" 
+          *ngFor="let card of diaryCards; trackBy: trackByDiaryCard"
+          [@fadeInAnimation]>
+          <div class="gallery-card">
+            <div class="image-wrapper">
+              <img 
+                [src]="'assets/img/Client-dairy/' + card.image" 
+                [alt]="card.title"
                 loading="lazy"
-              />
-              <span class="cd-image-chip" *ngIf="item.tag">{{ item.tag }}</span>
-            </div>
-
-            <div class="cd-card-caption">
-              {{ item.title }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Video Section -->
-    <div *ngIf="selectedSection === 'video'" class="cd-section" [@fadeInAnimation]="selectedSection">
-      <div class="cd-section-label">video-card</div>
-
-      <div #videoContainer class="row g-4 cd-grid">
-        <div class="col-12" *ngIf="videoError">
-          <div class="cd-alert">
-            <strong>Note:</strong> {{ videoError }}
-          </div>
-        </div>
-
-        <ng-container *ngIf="!videoError">
-          <ng-container *ngIf="isLoadingVideos; else videoGrid">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let s of [1,2,3,4,5,6,7,8]">
-              <div class="cd-video-skeleton" aria-hidden="true"></div>
-            </div>
-          </ng-container>
-
-          <ng-template #videoGrid>
-            <div class="col-12" *ngIf="!isLoadingVideos && videos.length === 0">
-              <div class="cd-empty">No videos found yet.</div>
-            </div>
-
-            <div
-              class="col-12 col-sm-6 col-md-4 col-lg-3"
-              *ngFor="let video of videos; trackBy: trackByVideo"
-            >
-              <div class="card video-card h-100">
-                <div class="cd-video-frame">
-                  <img
-                    [src]="video?.snippet?.thumbnails?.high?.url || video?.snippet?.thumbnails?.medium?.url || video?.snippet?.thumbnails?.default?.url"
-                    class="img-fluid video-thumb"
-                    [alt]="video?.snippet?.title"
-                    loading="lazy"
-                  />
-                  <span class="cd-image-chip cd-image-chip--dark">video</span>
-                </div>
-
-                <div class="card-body d-flex flex-column">
-                  <h6 class="video-title" [title]="video?.snippet?.title">
-                    {{ video?.snippet?.title }}
-                  </h6>
-
-                  <a
-                    class="btn cd-watch-btn mt-auto rounded-pill"
-                    [href]="'https://www.youtube.com/watch?v=' + video.id.videoId"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    ▶ Watch
-                  </a>
+                (error)="handleImageError($event)">
+              <div class="image-overlay">
+                <div class="overlay-content">
+                  <h3>{{ card.title }}</h3>
+                  <span class="tag" *ngIf="card.tag">{{ card.tag }}</span>
                 </div>
               </div>
             </div>
-          </ng-template>
-        </ng-container>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Video Gallery Section -->
+  <section 
+    #videoContainer
+    class="video-section" 
+    *ngIf="selectedSection === 'video'"
+    [@fadeInAnimation]>
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Latest Videos from Our Channel</h2>
+        <p>Watch our latest digital marketing insights and success stories</p>
+      </div>
+
+      <!-- Loading State -->
+      <div class="loading-state" *ngIf="isLoadingVideos">
+        <div class="spinner"></div>
+        <p>Loading videos...</p>
+      </div>
+
+      <!-- Error State -->
+      <div class="error-state" *ngIf="videoError && !isLoadingVideos">
+        <i class="fas fa-exclamation-circle"></i>
+        <p>{{ videoError }}</p>
+      </div>
+
+      <!-- Video Grid -->
+      <div class="video-gallery" *ngIf="!isLoadingVideos && !videoError && videos.length > 0">
+        <div 
+          class="video-card" 
+          *ngFor="let video of videos; trackBy: trackByVideo"
+          [@fadeInAnimation]>
+          <a 
+            [href]="'https://www.youtube.com/watch?v=' + video.id.videoId" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="video-link">
+            <div class="video-thumbnail">
+              <img 
+                [src]="video.snippet.thumbnails.medium.url" 
+                [alt]="video.snippet.title"
+                loading="lazy">
+              <div class="play-button">
+                <i class="fas fa-play"></i>
+              </div>
+              <div class="video-duration" *ngIf="video.contentDetails?.duration">
+                {{ formatDuration(video.contentDetails.duration) }}
+              </div>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">{{ video.snippet.title }}</h3>
+              <p class="video-description">{{ video.snippet.description | slice:0:100 }}...</p>
+              <div class="video-meta">
+                <span class="video-date">
+                  <i class="fas fa-calendar"></i>
+                  {{ formatDate(video.snippet.publishedAt) }}
+                </span>
+                <span class="video-views" *ngIf="video.statistics?.viewCount">
+                  <i class="fas fa-eye"></i>
+                  {{ formatViews(video.statistics.viewCount) }}
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" *ngIf="!isLoadingVideos && !videoError && videos.length === 0">
+        <i class="fas fa-video-slash"></i>
+        <p>No videos available at the moment.</p>
+      </div>
+    </div>
+  </section>
+</main>

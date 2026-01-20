@@ -152,4 +152,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateToBlog(): void {
     window.open('https://blog.digitalshivaa.com', '_blank');
   }
+  openlearn(): void {
+    window.open('https://classplusapp.com/w/learn-digitalshivaa', '_blank');
+  } 
+  openwhatsapp(): void {
+    window.open('https://whatsappapi.digitalshivaa.com', '_blank');
+  }
 }

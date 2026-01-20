@@ -38,22 +38,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   whyShivaaFeatures = [
     {
-      icon: 'fa fa-graduation-cap',
+        icon: 'fa-solid fa-graduation-cap',
       title: 'Expertise',
       description: 'We deliver results-driven digital marketing solutions in Pune. Your brand growth is our priority.'
     },
     {
-      icon: 'fa fa-globe',
+      icon: 'fa-solid fa-globe',
       title: 'Creative Solutions',
       description: 'We create ideas that stand out and connect your brand. Unique voices, creative results.'
     },
     {
-      icon: 'fa fa-home',
+      icon: 'fa-solid fa-user-tie',
       title: 'Trained Staff',
       description: 'Our experts are skilled, certified, and always up-to-date. You\'re in trusted hands.'
     },
     {
-      icon: 'fa fa-book-open',
+      icon: 'fa-solid fa-book-open',
       title: 'Quick Response',
       description: 'Our team is dedicated to providing quick and effective solutions to your needs.'
     }
@@ -189,14 +189,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   openInquiryDialog(): void {
     this.dialog.open(ServiceFormComponent, {
-      width: '400px',
-      height: '68vh',
-      position: {
-        right: '100px'
-      },
-      panelClass: 'custom-dialog-right',
+      width: '90%',
+      maxWidth: '600px',
+      maxHeight: '90vh',
+      panelClass: 'centered-service-dialog',
       disableClose: false,
       autoFocus: true,
+      hasBackdrop: true,
+      backdropClass: 'dialog-backdrop'
     });
   }
 
@@ -238,37 +238,37 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       title: 'Web Design and Development',
       image: '../../assets/img/Web-sitedev.jpg',
       description: 'Ensure your website is visually appealing, user-friendly, and optimized for conversions.',
-      link: '/Website_Development'
+      route: '/services/website-development'
     },
     {
       title: 'Search Engine Optimization (SEO)',
       image: '../../assets/img/SEO-marketing.jpg',
       description: 'Maximize online visibility and reach the right audience with our SEO strategies.',
-      link: '/SEO_Optimization'
+      route: '/services/seo-optimization'
     },
     {
       title: 'Social Media Marketing',
       image: '../../assets/img/socail-media.jpg',
       description: 'Boost your brand presence and engagement across all major social platforms.',
-      link: '/Social_Media_Marketing'
+      route: '/services/social-media-marketing'
     },
     {
       title: 'Pay-Per-Click (PPC) Advertising',
       image: '../../assets/img/PPC-markering.jpg',
       description: 'Drive quick results and leads with data-driven PPC campaigns.',
-      link: '/PPC_Management'
+      route: '/services/ppc-management'
     },
     {
       title: 'Email Marketing',
       image: '../../assets/img/email-mar.jpg',
       description: 'Build strong customer relationships and engagement with targeted email campaigns.',
-      link: '/Email_Marketing'
+      route: '/contact'
     },
     {
       title: 'Content Marketing',
       image: '../../assets/img/content_marketing.jpg',
       description: 'Deliver valuable content that converts and establishes authority in your field.',
-      link: '/Content_Marketing'
+      route: '/contact'
     }
   ];
   ngAfterViewInit(): void {

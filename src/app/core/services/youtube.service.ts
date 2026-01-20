@@ -18,9 +18,18 @@ export class YoutubeService {
       .set('channelId', environment.youtubeChannelId)
       .set('part', 'snippet')
       .set('order', 'date')
-      .set('maxResults', '12')
+      .set('maxResults', '50')
       .set('type', 'video');
 
     return this.http.get<any>(this.apiUrl, { params });
+  }
+
+  getVideoDetails(videoIds: string[]): Observable<any> {
+    const params = new HttpParams()
+      .set('key', environment.youtubeApiKey)
+      .set('id', videoIds.join(','))
+      .set('part', 'contentDetails,statistics');
+
+    return this.http.get<any>('https://www.googleapis.com/youtube/v3/videos', { params });
   }
 }
