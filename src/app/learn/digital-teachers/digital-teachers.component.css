@@ -230,7 +230,7 @@
 .eyebrow {
   font-size: 13px;
   font-weight: 700;
-  color: var(--primary-purple);     
+  /* color: var(--primary-purple);      */
   letter-spacing: 0.6px;
   text-transform: uppercase;
 }

@@ -4,7 +4,7 @@ import { Meta, Title } from '@angular/platform-browser';
 
 type SyllabusModule = {
   title: string;
-  subtitle: string;
+  // subtitle: string;
   bullets: string[];
   open?: boolean;
 };
@@ -47,8 +47,8 @@ export class DigitalMarketingComponent implements OnInit, OnDestroy {
   readonly syllabus: SyllabusModule[] = [
     {
       title: 'Module 1: Introduction to Digital Marketing',
-      subtitle: 'Fundamentals, career scope & ecosystem',
       bullets: [
+        'Fundamentals, career scope & ecosystem',
         'Digital marketing basics and career opportunities',
         'Traditional vs digital marketing',
         'Core channels and funnel understanding',
@@ -57,8 +57,9 @@ export class DigitalMarketingComponent implements OnInit, OnDestroy {
     },
     {
       title: 'Module 2: SEO & Content Marketing',
-      subtitle: 'Master search visibility',
+     
       bullets: [
+        'Master search visibility',
         'On-page, off-page & technical SEO',
         'Keyword research and competitor analysis',
         'Content strategy, blogging & SEO writing',
@@ -67,8 +68,9 @@ export class DigitalMarketingComponent implements OnInit, OnDestroy {
     },
     {
       title: 'Module 3: Social Media Marketing (SMM)',
-      subtitle: 'Facebook, Instagram, LinkedIn & growth',
+      
       bullets: [
+        'Facebook, Instagram, LinkedIn & growth',
         'Platform algorithms and content formats',
         'Organic growth and engagement strategies',
         'Community management and brand building',
@@ -77,8 +79,9 @@ export class DigitalMarketingComponent implements OnInit, OnDestroy {
     },
     {
       title: 'Module 4: Google Ads & Paid Advertising',
-      subtitle: 'Search, display & video ads',
+      
       bullets: [
+        'Search, display & video ads',
         'Google Ads setup, structure and bidding',
         'YouTube ads, remarketing and audiences',
         'Conversion tracking and quality score optimization',
@@ -87,8 +90,9 @@ export class DigitalMarketingComponent implements OnInit, OnDestroy {
     },
     {
       title: 'Module 5: Email & Affiliate Marketing',
-      subtitle: 'Automation & monetization',
+      
       bullets: [
+        'Automation & monetization',
         'Lead nurturing and email automation',
         'List building and segmentation',
         'Affiliate ecosystems (Amazon/Clickbank basics)',
@@ -97,8 +101,9 @@ export class DigitalMarketingComponent implements OnInit, OnDestroy {
     },
     {
       title: 'Module 6: Analytics & Reporting',
-      subtitle: 'Tracking ROI & performance',
+      
       bullets: [
+        'Tracking ROI & performance',
         'Google Analytics 4 (GA4) setup & insights',
         'User behavior and conversion funnels',
         'Goals and event tracking',

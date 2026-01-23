@@ -33,11 +33,12 @@ export class ClientDiaryComponent implements OnInit {
     this.loadVideos();
 
     this.diaryImages = [
-      'img-1.jpg', 'img-2.jpg', 'img-3.jpeg', 'img-4.jpeg', 'img-5.jpg',
-      'img-6.png', 'img-7.png', 'img-8.png', 'img-9.jpeg', 'img-10.png',
-      'img-11.png', 'img-12.png', 'img-13.png', 'img-14.png', 'img-15.png',
-      'img-16.png', 'img-17.jpeg', 'img-18.jpeg', 'img-19.jpeg', 'img-20.jpeg',
-      'img-21.jpeg', 'img-22.jpeg', 'img-23.jpeg', 'img-24.jpeg', 'img-25.jpeg', 'img-26.png', 'img-27.png'
+      'img-26.jpeg', 'img-27.jpeg', 'img-28.jpeg', 'img-29.jpeg', 
+      'img-1.jpg','img-2.jpg','img-3.jpeg','img-4.jpeg','img-5.jpg',
+      'img-7.png', 'img-8.png', 'img-9.jpeg', 'img-10.png',
+      'img-11.png', 'img-12.png', 'img-13.png','img-15.png',
+      'img-16.png', 'img-18.jpeg', 'img-19.jpeg', 'img-20.jpeg',
+      'img-21.jpeg', 'img-22.jpeg', 'img-23.jpeg', 'img-24.jpeg', 'img-25.jpeg', 'img-26.png'
     ];
 
     const titles = [

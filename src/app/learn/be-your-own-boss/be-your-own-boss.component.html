@@ -170,11 +170,13 @@
               <p class="dm-lead">Real stories from our students and entrepreneurs.</p>
           </div>
 
-          <div class="dm-gallery" role="list" aria-label="Testimonials gallery">
-              <figure class="dm-shot" role="listitem" *ngFor="let img of testimonials">
-                  <img class="dm-shot-img" [src]="img" alt="Placed student testimonial" loading="lazy"
-                      decoding="async" />
-              </figure>
+          <div class="dm-gallery-wrapper">
+              <div class="dm-gallery" role="list" aria-label="Testimonials gallery">
+                  <figure class="dm-shot" role="listitem" *ngFor="let img of testimonials">
+                      <img class="dm-shot-img" [src]="img" alt="Placed student testimonial" loading="lazy"
+                          decoding="async" />
+                  </figure>
+              </div>
           </div>
       </div>
   </section>

@@ -555,6 +555,13 @@ img {
 }
 
 @media (max-width: 768px) {
+  
+  .hero-form-card{
+    display: none;
+  }
+  .card-actions .btn{
+    flex: 1;
+  }
   .section {
     padding: 56px 0;
   }
